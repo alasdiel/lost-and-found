@@ -24,3 +24,7 @@ Route::get('/app', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/dbconn', function(){
+    return view('database');
+}
+);
