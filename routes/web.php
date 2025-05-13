@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/app', function () {
-    return view('index');
+    return view('Homepage_found');
 });
 
 Route::get('/login', function () {

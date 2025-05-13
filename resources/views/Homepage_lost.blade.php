@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lost and Found Portal - Lost Items</title>
-        <!-- CSS file -->
+        <!-- Include your CSS file -->
         @vite(['resources/css/styles.css'])
     </head>
 
@@ -41,6 +41,7 @@
                         <!-- Row 1 -->
                         <div class="items-container">
 
+                            <!-- Item 1-->
                             <div class="item-card">
                                 <div class="item-image-container">
                                     <img src="assets\Item 1.png" alt="Hydro Flask" class="item-image">
@@ -56,6 +57,7 @@
                                 </div>
                             </div>
 
+                            <!-- Item 2-->
                             <div class="item-card">
                                 <div class="item-image-container">
                                     <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
@@ -70,6 +72,7 @@
                                 </div>
                             </div>
 
+                            <!-- Item 3-->
                             <div class="item-card">
                                 <div class="item-image-container">
                                     <img src="assets\Item 1.png" alt="Laptop" class="item-image">
@@ -104,6 +107,7 @@
                                 </div>
                             </div>
 
+                            <!-- Item 2-->
                             <div class="item-card">
                                 <div class="item-image-container">
                                     <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
@@ -118,6 +122,7 @@
                                 </div>
                             </div>
 
+                            <!-- Item 3-->
                             <div class="item-card">
                                 <div class="item-image-container">
                                     <img src="assets\Item 1.png" alt="Laptop" class="item-image">
@@ -134,10 +139,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="tab-content" id="foundContent" style="display: none;">
-                        <!-- Found items content will be loaded here -->
-                    </div>
                 </div>
 
                 <footer>
@@ -145,6 +146,7 @@
                 </footer>
             </div>
         </div>
+
         <!-- JS file -->
         @vite(['resources/js/script.js'])
     </body>
