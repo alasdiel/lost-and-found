@@ -1,0 +1,428 @@
+/* CSS Variables for easy customization */
+:root {
+    /* Common colors */
+    --background-color: #a7b6e0;
+    --text-color: #333;
+    --white: #ffffff;
+
+    /* Lost page specific colors */
+    --lost-primary: #2e3a6a;
+    --lost-secondary: #a7b6e0;
+    --lost-card-bg: #7886c7;
+    --lost-container-bg: #f8f0f0;
+
+    /* Found page specific colors*/
+    --found-primary: #2e3a6a;
+    --found-secondary: #a7b6e0;
+    --found-card-bg: #f8f0f0;
+    --found-container-bg: #7886c7;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling on the body */
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page-specific body classes */
+body.lost-page {
+    /* Override variables for lost page if needed */
+    --background-color: var(--lost-secondary);
+}
+
+body.found-page {
+    /* Override variables for found page if needed */
+    --background-color: var(--found-secondary);
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+.container {
+    width: 80%; /* Set container to 80% of viewport width */
+    max-width: 1500px; /* Increased from 1200px */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Top header with white background */
+.top-header {
+    background-color: var(--white);
+    padding: 15px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0;
+}
+
+/* Header styles */
+.portal-title {
+    color: var(--lost-primary);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Lost page specific header styles */
+.lost-page .portal-title {
+    color: var(--lost-primary);
+}
+
+/* Found page specific header styles */
+.found-page .portal-title {
+    color: var(--found-primary);
+}
+
+.login-btn {
+    background-color: var(--lost-primary);
+    color: var(--white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+/* Lost page specific login button */
+.lost-page .login-btn {
+    background-color: var(--lost-primary);
+}
+
+/* Found page specific login button */
+.found-page .login-btn {
+    background-color: var(--found-primary);
+}
+
+/* Search bar styles */
+.search-container {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+}
+
+/* Tabs styles */
+.tabs-container {
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--lost-primary);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Lost page specific tab styles */
+.lost-page .tab {
+    background-color: var(--lost-primary);
+}
+
+/* Found page specific tab styles */
+.found-page .tab {
+    background-color: var(--found-primary);
+}
+
+.tab.active {
+    background-color: var(--white);
+    color: var(--lost-primary);
+}
+
+/* Lost page specific active tab */
+.lost-page .tab.active {
+    color: var(--lost-primary);
+    }
+
+/* Found page specific active tab */
+.found-page .tab.active {
+    color: var(--found-primary);
+}
+
+/* Tab content */
+.tab-content {
+    transition: opacity 0.3s ease;
+    background-color: var(--lost-container-bg);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 300px;
+    height: auto;
+    max-height: calc(100vh - 250px);
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Lost page specific tab content */
+.lost-page .tab-content {
+    background-color: var(--lost-container-bg);
+}
+
+/* Found page specific tab content */
+.found-page .tab-content {
+    background-color: var(--found-container-bg);
+}
+
+/* Items container - modified for specific layout */
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Item card styles - adjusted for specific layout */
+.item-card {
+  /* Fixed width for exactly 3 cards per row */
+    width: calc((100% - 50px) / 3);
+    flex: 0 0 calc((100% - 50px) / 3);
+    background-color: var(--lost-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Force the 4th item to start a new row */
+.item-card:nth-child(4) {
+    margin-left: 0; /* Align to the left */
+    width: calc((100% - 40px) / 3); /* Same width as other cards */
+    flex: 0 0 calc((100% - 40px) / 3);
+}
+
+/* Lost page specific item cards */
+.lost-page .item-card {
+    background-color: var(--lost-card-bg);
+}
+
+/* Found page specific item cards */
+.found-page .item-card {
+    background-color: var(--found-card-bg);
+}
+
+.item-image-container {
+    height: 200px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.item-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-details {
+    padding: 15px;
+    color: var(--text-color);
+}
+
+/* Lost page specific item details text color */
+.lost-page .item-details {
+    color: var(--white);
+}
+
+/* Found page specific item details text color */
+.found-page .item-details {
+    color: var(--text-color);
+    }
+
+.detail {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.posted-by {
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* User page specific styles to add to your existing CSS */
+
+/* User actions container in header */
+.user-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background-color: var(--white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 2px solid;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Profile button styling */
+.profile-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: var(--white);
+    transition: background-color 0.3s;
+}
+
+/* Lost page specific submit button */
+.lost-page .submit-btn {
+    color: var(--lost-primary);
+    border-color: var(--lost-primary);
+}
+
+.lost-page .submit-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Found page specific submit button */
+.found-page .submit-btn {
+  color: var(--found-primary);
+  border-color: var(--found-primary);
+}
+
+.found-page .submit-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Lost page specific profile button */
+.lost-page .profile-btn {
+    background-color: var(--lost-primary);
+}
+
+.lost-page .profile-btn:hover {
+    background-color: #3a4a80;
+}
+
+/* Found page specific profile button */
+.found-page .profile-btn {
+    background-color: var(--found-primary);
+}
+
+.found-page .profile-btn:hover {
+    background-color: #3a4a80;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: var(--white);
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+}
+
+.login-link {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Remove footer for user pages since it contains login link */
+.user-page footer {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    /* For medium screens */
+    .item-card,
+    .item-card:nth-child(4) {
+        width: calc((100% - 20px) / 2);
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+
+    /* Force the 3rd item to start a new row on medium screens */
+    .item-card:nth-child(3) {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    /* For mobile screens */
+    .item-card,
+    .item-card:nth-child(4),
+    .item-card:nth-child(3) {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .submit-btn,
+    .profile-btn {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    /* Adjust tab content height for mobile */
+    .tab-content {
+        max-height: calc(100vh - 280px);
+    }
+}
