@@ -170,6 +170,8 @@ input[type="tel"] {
 }
 
 .login-btn {
+    display: flex;
+    justify-content: center;
     width: 100%;
     max-width: 250px;
     padding: 15px;
