@@ -65,7 +65,7 @@
 
                     <!-- Login Link -->
                     <div class="login-link">
-                        Already have an account? <a href="Log_in.html">Log in</a>
+                        Already have an account? <a href="{{ route('show.Log_in') }}">Log in</a>
                     </div>
                     
                     <!-- Homepage Link -->

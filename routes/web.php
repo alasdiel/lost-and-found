@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,10 @@ Route::get('/', function () {
 Route::get('/found', function () {
     return view('Homepage_found');
 });
+
+Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
+
+Route::get('/login', [AuthController::class, 'showLog_in'])->name('show.login');
 
 Route::get('/login', function () {
     return view('Log_in');
