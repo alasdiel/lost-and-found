@@ -37,7 +37,7 @@
                     <!-- Email -->
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" required value="{{ old('email') }}">
                     </div>
                     
                     <!-- Password -->
@@ -49,13 +49,13 @@
                     <!-- Confirm Password -->
                     <div class="input-group">
                         <label for="confirm-password">Re-enter password <span class="required">*</span></label>
-                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <input type="password" id="confirm-password" name="password_confirmation" required>
                     </div>
                     
                     <!-- Contact Number -->
                     <div class="input-group">
                         <label for="contact">Contact Number</label>
-                        <input type="tel" id="contact" name="contact">
+                        <input type="tel" id="contact" name="contact_number">
                     </div>
                     
                     <!-- Submit Button -->
