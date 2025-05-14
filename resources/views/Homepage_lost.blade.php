@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lost and Found Portal - Lost Items</title>
+        <title>Lost and Found Portal</title>
         <!-- Include your CSS file -->
         @vite(['resources/css/styles.css'])
     </head>
@@ -140,7 +140,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Main content area with light background (FOUND) -->
                 <div class="main-content-area" id=foundContent>
                     <!-- Tab content containers -->
@@ -230,10 +229,9 @@
                                 </div>
                             </div>
             </div>
-
         </div>
         <footer>
-            <p>Want to submit a report? <a href="{{ route('show.Log_in')}}" class="login-link">Log in.</a></p>
+            <p>Want to submit a report? <a href="{{ route('show.login') }}" class="login-link">Log in.</a></p>
         </footer>
 
         <!-- JS file -->

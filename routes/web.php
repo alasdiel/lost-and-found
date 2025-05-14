@@ -26,14 +26,6 @@ Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup
 
 Route::get('/login', [AuthController::class, 'showLog_in'])->name('show.login');
 
-Route::get('/login', function () {
-    return view('Log_in');
-});
-
-Route::get('/signup', function () {
-    return view('Sign_up');
-});
-
 Route::get('/form', function () {
     return view('Form_submission');
 });

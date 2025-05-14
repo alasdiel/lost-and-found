@@ -64,13 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Login button functionality - updated to point to Log_in.blade.php
-    const loginButtons = document.querySelectorAll('.login-btn, .login-link');
-    loginButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'Log_in.blade.php';
-        });
-    });
+    // const loginButtons = document.querySelectorAll('.login-btn, .login-link');
+    // loginButtons.forEach(button => {
+    //     button.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         window.location.href = 'Log_in.blade.php';
+    //     });
+    // });
     
     // Submit button functionality (for user pages)
     const submitButtons = document.querySelectorAll('.submit-btn');

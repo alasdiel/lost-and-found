@@ -11,7 +11,7 @@ class AuthController extends Controller
         return view('auth.Sign_up');
     }
 
-    public function showLogin ()
+    public function showLog_in ()
     {
         return view('auth.Log_in');
     }
