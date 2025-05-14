@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Homepage_lost');
-});
-
-Route::get('/found', function () {
-    return view('Homepage_found');
-});
+Route::get('/', [HomeRoute::class, 'showHome'])->name('show.home');
 
 Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
 

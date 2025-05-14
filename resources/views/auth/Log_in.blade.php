@@ -22,7 +22,7 @@
 
             <!--Homepage link-->
             <div class="guest-link">
-                Return to <a href="#"><u>Homepage</u></a>.
+                Return to <a href="{{ route('show.home') }}"><u>Homepage</u></a>.
             </div>
         </div>
 

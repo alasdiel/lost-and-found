@@ -65,12 +65,12 @@
 
                     <!-- Login Link -->
                     <div class="login-link">
-                        Already have an account? <a href="{{ route('show.Log_in') }}">Log in</a>
+                        Already have an account? <a href="{{ route('show.login') }}">Log in</a>
                     </div>
                     
                     <!-- Homepage Link -->
                     <div class="home-link">
-                        Return to <a href="#">Homepage</a>.
+                        Return to <a href="{{ route('show.home') }}">Homepage</a>.
                     </div>
 
                 </form>
