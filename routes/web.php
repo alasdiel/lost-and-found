@@ -29,6 +29,10 @@ Route::get('/signup', function () {
     return view('Sign_up');
 });
 
+Route::get('/form', function () {
+    return view('Form_submission');
+});
+
 // Database
 Route::get('/dbconn', function(){
     return view('database');
