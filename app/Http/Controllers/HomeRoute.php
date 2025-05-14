@@ -8,6 +8,6 @@ class HomeRoute extends Controller
 {
     public function showHome ()
     {
-        return view('Homepage_lost'); //change to Homepage when OK
+        return view('Homepage'); //change to Homepage when OK
     }
 }
