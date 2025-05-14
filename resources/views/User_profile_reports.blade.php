@@ -5,18 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lost and Found Portal - User Profile</title>
-        @vite(['resources/css/styles.css'])
         @vite(['resources/css/profile-styles.css'])
     </head>
 
-    <body class="profile-page">
+    <body>
         <div class="page-wrapper">
-            <!-- White header border -->
+            <!-- Header -->
             <div class="top-header">
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
-                        <a href="Homepage_user_lost.html" class="back-home-btn">Back to Home</a>
+                        <a href="#" class="back-home-btn">Back to Home</a>
                     </div>
                 </div>
             </div>
@@ -31,8 +30,8 @@
                     <p class="user-username">alasdiel</p>
                     
                     <nav class="profile-nav">
-                        <a href="User_profile_reports.html" class="nav-item active" data-tab="reports">Report Submissions</a>
-                        <a href="User_profile_settings.html" class="nav-item" data-tab="settings">Account Settings</a>
+                        <a href="#" class="nav-item active">Report Submissions</a>
+                        <a href="#" class="nav-item">Account Settings</a>
                     </nav>
                     
                     <button class="logout-btn">
@@ -52,8 +51,8 @@
                                     <a href="#">All</a>
                                     <a href="#">Lost</a>
                                     <a href="#">Found</a>
+                                    <a href="#">Pending</a>
                                     <a href="#">Resolved</a>
-                                    <a href="#">Unresolved</a>
                                 </div>
                             </div>
                             <div class="search-container">
@@ -66,6 +65,7 @@
                     </div>
                     
                     <div class="submissions-table">
+                        <!-- Table Header -->
                         <div class="table-header">
                             <div class="table-cell">Lost / Found</div>
                             <div class="table-cell">Post ID</div>
@@ -74,12 +74,26 @@
                             <div class="table-cell">Status</div>
                         </div>
                         
+                        
                         <div class="table-row">
                             <div class="table-cell">Lost</div>
                             <div class="table-cell">LF001</div>
                             <div class="table-cell">Hydro Flask</div>
                             <div class="table-cell">03/23/2025</div>
-                            <div class="table-cell"><span class="status-resolved">Resolved</span></div>
+                            <div class="table-cell status-cell">
+                                <span class="status-resolved">Resolved</span>
+                                <div class="status-dropdown">
+                                    <button class="dropdown-toggle">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item" data-status="pending">Pending</a>
+                                        <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="table-row">
@@ -87,7 +101,20 @@
                             <div class="table-cell">LF002</div>
                             <div class="table-cell">Playstation 5</div>
                             <div class="table-cell">03/23/1990</div>
-                            <div class="table-cell"><span class="status-resolved">Resolved</span></div>
+                            <div class="table-cell status-cell">
+                                <span class="status-pending">Pending</span>
+                                <div class="status-dropdown">
+                                    <button class="dropdown-toggle">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item" data-status="pending">Pending</a>
+                                        <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="table-row">
@@ -95,16 +122,82 @@
                             <div class="table-cell">LF003</div>
                             <div class="table-cell">Laptop</div>
                             <div class="table-cell">05/10/2025</div>
-                            <div class="table-cell"><span class="status-resolved">Resolved</span></div>
+                            <div class="table-cell status-cell">
+                                <span class="status-pending">Pending</span>
+                                <div class="status-dropdown">
+                                    <button class="dropdown-toggle">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item" data-status="pending">Pending</a>
+                                        <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- JS file -->
-        @vite(['resources/js/script.js'])
-        @vite(['resources/js/profile-script.js'])
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all dropdown toggles
+                const toggles = document.querySelectorAll('.dropdown-toggle');
+                
+                // Add click event to each toggle
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        
+                        // Close all other open dropdowns
+                        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                            if (menu !== this.nextElementSibling) {
+                                menu.classList.remove('show');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        this.nextElementSibling.classList.toggle('show');
+                    });
+                });
+                
+                // Add click event to dropdown items
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const statusCell = this.closest('.status-cell');
+                        const statusSpan = statusCell.querySelector('span');
+                        const status = this.getAttribute('data-status');
+                        
+                        // Remove existing status classes
+                        statusSpan.classList.remove('status-pending', 'status-resolved');
+                        
+                        // Add new status class and update text
+                        if (status === 'pending') {
+                            statusSpan.classList.add('status-pending');
+                            statusSpan.textContent = 'Pending';
+                        } else if (status === 'resolved') {
+                            statusSpan.classList.add('status-resolved');
+                            statusSpan.textContent = 'Resolved';
+                        }
+                        
+                        // Hide dropdown
+                        this.closest('.dropdown-menu').classList.remove('show');
+                    });
+                });
+                
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function() {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                });
+            });
+        </script>
     </body>
-
 </html>
