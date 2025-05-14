@@ -50,7 +50,7 @@
                 <!-- Main content area with light background (LOST) -->
                 <div class="main-content-area" id=lostContent>
                     <!-- Tab content containers -->
-                    <div class="tab-content" id="lostContent">
+                    <div class="tab-content">
 
                         <!-- Row 1 -->
                         <div class="items-container">
@@ -154,10 +154,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
                 <!-- Main content area with light background (FOUND) -->
+                <div class="container">
                 <div class="main-content-area" id=foundContent>
                     <!-- Tab content containers -->
-                    <div class="tab-content" id="foundContent">
+                    <div class="tab-content">
 
                         <!-- Row 1 -->
                         <div class="items-container">
@@ -241,9 +243,11 @@
                                     <p class="detail">09xxxxxxxxx</p>
                                     <p class="detail posted-by">Posted by: alasdiel</p>
                                 </div>
-                            </div>
+                            </div> <!-- item card-->
+                        </div> <!--items-container-->
+                    </div>
+                </div>
             </div>
-        </div>
         <footer>
             <p>Want to submit a report? <a href="{{ route('show.login') }}" class="login-link">Log in.</a></p>
         </footer>
