@@ -16,7 +16,21 @@
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
-                        <!--<a href="#" class="login-btn">Log in</a>-->
+                        <!--
+                            Guest user actions
+                            <a href="#" class="login-btn">Log in</a>
+                        -->
+                        <!--
+                            User actions
+                            <a href="Form_submission.html" class="submit-btn">Submit</a>
+                            <a href="User-profile_report.html" class="profile-btn">Profile</a>
+                        -->
+                        
+                        <!-- 
+                            Guest user actions 
+                            <a href="#" class="dashboard-btn">Dashboard</a>
+                            <a href="#" class="logout-btn">Log out</a>
+                        -->
                     </div>
                 </div>
             </div>
