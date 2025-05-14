@@ -17,14 +17,23 @@ Route::get('/', function () {
     return view('Homepage_lost');
 });
 
-Route::get('/app', function () {
+Route::get('/found', function () {
     return view('Homepage_found');
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('Log_in');
 });
+
+Route::get('/signup', function () {
+    return view('Sign_up');
+});
+
+// Database
 Route::get('/dbconn', function(){
     return view('database');
 }
 );
+
+
+

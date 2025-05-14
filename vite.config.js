@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/profile-styles.css',
                 'resources/css/styles.css',
+                'resources/css/log-styles.css',
                 // Path to JS files
                 'resources/js/app.js',
                 'resources/js/bootstrap.js',
