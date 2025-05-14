@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const lostContent = document.getElementById('lostContent');
     const foundContent = document.getElementById('foundContent');
     const searchInput = document.getElementById('searchInput');
+
+    //SET LOST AS DEFAULT
+    lostContent.style.display = 'block';
+    foundContent.style.display = 'none';
     
     // Determine if user is logged in based on current page
     const isUserLoggedIn = document.body.classList.contains('user-page');
@@ -15,18 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const tabType = this.getAttribute('data-tab');
-            
-            // Special case 1: If on Homepage_guest_lost.blade.php and FOUND tab is clicked
-            if (currentPage === 'Homepage_guest_lost.blade.php' && tabType === 'found') {
-                window.location.href = 'Homepage_guest_found.blade.php';
-                return;
-            }
-            
-            // Special case 2: If on Homepage_guest_found.blade.php and LOST tab is clicked
-            if (currentPage === 'Homepage_guest_found.blade.php' && tabType === 'lost') {
-                window.location.href = 'Homepage_guest_lost.blade.php';
-                return;
-            }
             
             // For other cases, use the seamless tab switching
             // Remove active class from all tabs
