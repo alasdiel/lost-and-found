@@ -13,7 +13,7 @@
         <div class="container signup-container">
             <div class="signup-form">
                 <h1>Create Account</h1>
-                <form action="{{ route('register') }}" method="POST">
+                <form action="{{ route('signup') }}" method="POST">
                     @csrf
                     <!--Name -->
                     <div class="form-row">
@@ -30,33 +30,37 @@
                     </div>
                     
                     <!-- Username -->
-                    <div class="input-group">
+                    <div class="input-group half">
                         <label for="username">Username <span class="required">*</span></label>
                         <input type="text" id="username" name="username" required>
                     </div>
                     
-                    <!-- Email -->
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="contact_email" required value="{{ old('email') }}">
+                    <div class="form-row">
+                        <!-- Password -->
+                        <div class="input-group half">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <!-- Confirm Password -->
+                        <div class="input-group half">
+                            <label for="confirm-password">Re-enter password <span class="required">*</span></label>
+                            <input type="password" id="confirm-password" name="password_confirmation" required>
+                        </div>
                     </div>
-                    
-                    <!-- Password -->
-                    <div class="input-group">
-                        <label for="password">Password <span class="required">*</span></label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    
-                    <!-- Confirm Password -->
-                    <div class="input-group">
-                        <label for="confirm-password">Re-enter password <span class="required">*</span></label>
-                        <input type="password" id="confirm-password" name="password_confirmation" required>
-                    </div>
-                    
-                    <!-- Contact Number -->
-                    <div class="input-group">
-                        <label for="contact">Contact Number</label>
-                        <input type="tel" id="contact" name="contact_number">
+
+                    <div class="form-row">
+                        <!-- Email -->
+                        <div class="input-group half">
+                            <label for="email">Contact Email</label>
+                            <input type="email" id="email" name="contact_email" required value="{{ old('email') }}">
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="input-group half">
+                            <label for="contact">Contact Number</label>
+                            <input type="text" id="contact" name="contact_number">
+                        </div>
                     </div>
                     
                     <!-- Submit Button -->

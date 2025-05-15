@@ -17,7 +17,7 @@
 
             <!-- Sign up form -->
             <div class="center-btn">
-                <button class="btn btn-primary">SIGN UP</button>
+                <a href="{{ route('show.signup') }}" class="btn btn-primary" style="text-decoration:none;text-align: center;">SIGN UP</a>
             </div>
 
             <!--Homepage link-->

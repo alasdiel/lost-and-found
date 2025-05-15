@@ -166,7 +166,12 @@ input[type="tel"] {
 .center-btn {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
+}
+
+.center-btn a {
+    display: block;
 }
 
 .login-btn {
