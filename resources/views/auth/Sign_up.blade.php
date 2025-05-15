@@ -13,18 +13,19 @@
         <div class="container signup-container">
             <div class="signup-form">
                 <h1>Create Account</h1>
-                <form>
+                <form action="{{ route('register') }}" method="POST">
+                    @csrf
                     <!--Name -->
                     <div class="form-row">
                         <!-- First name -->
                         <div class="input-group half">
                             <label for="first-name">First name <span class="required">*</span></label>
-                            <input type="text" id="first-name" name="first-name" required>
+                            <input type="text" id="first-name" name="first_name" required>
                         </div>
                         <!-- Last name -->
                         <div class="input-group half">
                             <label for="last-name">Last name <span class="required">*</span></label>
-                            <input type="text" id="last-name" name="last-name" required>
+                            <input type="text" id="last-name" name="last_name" required>
                         </div>
                     </div>
                     
@@ -37,7 +38,7 @@
                     <!-- Email -->
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required value="{{ old('email') }}">
+                        <input type="email" id="email" name="contact_email" required value="{{ old('email') }}">
                     </div>
                     
                     <!-- Password -->

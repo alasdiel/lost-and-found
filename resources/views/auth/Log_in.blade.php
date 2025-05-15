@@ -31,8 +31,8 @@
             <h1>Welcome Back!</h1>
 
             <!--Text Field-->
-            <form>
-
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <!--Username-->
                 <div class="input-group">
                     <label for="username">Username</label>

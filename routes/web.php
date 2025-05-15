@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeRoute::class, 'showHome'])->name('show.home');
 
 Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
+Route::post('/signup', [AuthController::class, 'sign_up'])->name('signup');
 
 Route::get('/login', [AuthController::class, 'showLog_in'])->name('show.login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/form', function () {
     return view('Form_submission');
