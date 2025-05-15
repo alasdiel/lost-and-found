@@ -53,7 +53,7 @@
                         <!-- Email -->
                         <div class="input-group half">
                             <label for="email">Contact Email</label>
-                            <input type="email" id="email" name="contact_email" required value="{{ old('email') }}">
+                            <input type="email" id="email" name="contact_email" value="{{ old('email') }}">
                         </div>
 
                         <!-- Contact Number -->
