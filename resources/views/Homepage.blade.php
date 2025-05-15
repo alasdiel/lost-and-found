@@ -9,6 +9,19 @@
         @vite(['resources/css/styles.css'])
     </head>
 
+    <style>
+        .success-message {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        color: #22543d;
+        background-color: #f0fff4;
+        border-radius: 10px;
+        width: 80%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        }
+    </style>
+
     <body class="lost-page">
         <div class="page-wrapper">
             <!-- White header border -->
@@ -16,6 +29,7 @@
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
+                        
                         <!--
                             Guest user actions
                             <a href="#" class="login-btn">Log in</a>
@@ -34,6 +48,11 @@
                     </div>
                 </div>
             </div>
+            @if (session('success'))
+            <div class="success-message">
+                {{ session('success') }}
+            </div>
+            @endif
 
             <div class="container">
                 <!-- Search bar -->

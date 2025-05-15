@@ -34,6 +34,8 @@ class AuthController extends Controller
         $user = User::create($valid);
 
         Auth::login($user);
+        return redirect()->route('show.home')->with('success', 'Successfully registered!');
+
     }
 
     public function login(){
