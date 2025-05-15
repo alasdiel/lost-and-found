@@ -23,6 +23,8 @@ Route::post('/signup', [AuthController::class, 'sign_up'])->name('signup');
 Route::get('/login', [AuthController::class, 'showLog_in'])->name('show.login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/form', function () {
     return view('Form_submission');
 });
