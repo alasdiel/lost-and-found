@@ -41,19 +41,21 @@
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
-                        
-                        <!--
-                            Guest user actions
-                            <a href="#" class="login-btn">Log in</a>
-                        -->
-                        <!--
-                            User actions
+
+                        @auth
                             <a href="Form_submission.html" class="submit-btn">Submit</a>
                             <a href="User-profile_report.html" class="profile-btn">Profile</a>
-                        -->
-                        
+                            <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="logout-btn">Log out</button>
+                            </form>
+                        @endauth
+                        @guest
+                            <a href="{{ route('show.login') }}" class="login-btn">Log in</a>
+                        @endguest
+
                         <!-- 
-                            Guest user actions 
+                            Admin user actions 
                             <a href="#" class="dashboard-btn">Dashboard</a>
                             <a href="#" class="logout-btn">Log out</a>
                         -->

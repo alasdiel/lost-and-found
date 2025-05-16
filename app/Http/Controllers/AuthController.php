@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -47,9 +48,12 @@ class AuthController extends Controller
         $attempt = Auth::attempt($valid);
         if ($attempt) {
             $request->session()->regenerate();
-            return redirect()->route('show.home')->with('success', 'Successfully logged in!');
+            return redirect()->route('show.home');
         }
-        return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
+
+        throw ValidationException::withMessages([
+            'credentials' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     public function logout (Request $request){
