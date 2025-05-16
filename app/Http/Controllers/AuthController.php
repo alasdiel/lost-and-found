@@ -38,8 +38,18 @@ class AuthController extends Controller
 
     }
 
-    public function login(){
+    public function login(Request $request){
+        $valid = $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string'
+        ]);
 
+        $attempt = Auth::attempt($valid);
+        if ($attempt) {
+            $request->session()->regenerate();
+            return redirect()->route('show.home')->with('success', 'Successfully logged in!');
+        }
+        return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
     }
 
     public function logout (Request $request){

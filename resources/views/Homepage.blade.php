@@ -20,6 +20,18 @@
         margin-left: 1rem;
         margin-right: 1rem;
         }
+
+        .failed-message {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        color: #da5959;
+        background-color: #f0fff4;
+        border-radius: 10px;
+        width: 80%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        }
     </style>
 
     <body class="lost-page">
