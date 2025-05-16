@@ -43,7 +43,7 @@
                         <h1 class="portal-title">Lost and Found Portal</h1>
 
                         @auth
-                            <a href="Form_submission.html" class="submit-btn">Submit</a>
+                            <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
                             <a href="User-profile_report.html" class="profile-btn">Profile</a>
                             <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf
@@ -281,10 +281,11 @@
                     </div>
                 </div>
             </div>
+        @guest
         <footer>
             <p>Want to submit a report? <a href="{{ route('show.login') }}" class="login-link">Log in.</a></p>
         </footer>
-
+        @endguest
         <!-- JS file -->
         @vite(['resources/js/script.js'])
     </body>

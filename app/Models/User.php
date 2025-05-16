@@ -46,8 +46,8 @@ class User extends Authenticatable
     //     'email_verified_at' => 'datetime',
     // ];
 
-    public function getAuthIdentifierName()
-    {
-        return 'username';
-    }
+    // public function getAuthIdentifierName()
+    // {
+    //     return 'username';
+    // }
 }

@@ -71,27 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //         window.location.href = 'Log_in.blade.php';
     //     });
     // });
-    
-    // Submit button functionality (for user pages)
-    const submitButtons = document.querySelectorAll('.submit-btn');
-    submitButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Redirect to form submission page
-            window.location.href = 'Form_submission.blade.php';
-        });
-    });
-    
-    // Profile button functionality (for user pages)
-    const profileButtons = document.querySelectorAll('.profile-btn');
-    profileButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Redirect to user profile page
-            window.location.href = 'User_profile_reports.blade.php';
-        });
-    });
 });
-
-// For demonstration purposes, logging that script is loaded
-console.log('Lost and Found Portal script loaded successfully');
+    // For demonstration purposes, logging that script is loaded
+    console.log('Lost and Found Portal script loaded successfully');

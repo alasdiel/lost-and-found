@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -25,10 +26,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/form', function () {
-    return view('Form_submission');
-});
-
+Route::get('/report', [FormController::class, 'showReport'])->name('show.report');
+Route::post('/report', [FormController::class, 'report'])->middleware('auth')->name('report');
 // Database
 Route::get('/dbconn', function(){
     return view('database');
