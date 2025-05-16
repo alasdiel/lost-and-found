@@ -1,14 +1,16 @@
-/* Global Styles */
 :root {
-    --lost-primary: #2e3a6a;
-    --lost-secondary: #6878c0;
-    --text-color: #333;
+    --primary-main: #2e3a6a;
+    --secondary-main: #6878c0;
+    --white: #ffffff;
+    --btn-hover-dark: #3a4a80;
+    --btn-hover-light: #f5f5f5;
+    --text-bg-light: #FFF2F2;
+    --text-color-dark: #2d336b;
+    --text-color-light: #fff;
     --content-bg: #f0e8e8;
     --border-color: #ddd;
     --button-bg: #2e3a6a;
     --button-color: white;
-    --text-bg: #FFF2F2;
-    --text-color: #2D336B;
     --status-resolved-bg: #6ca46c;
     --status-resolved-color: white;
     --status-pending-bg: #ffc107;
@@ -23,7 +25,7 @@
 }
 
 body {
-    color: var(--text-color);
+    color: var(--text-color-dark);
     background-color: var(--content-bg);
     margin: 0;
     padding: 0;
@@ -31,54 +33,38 @@ body {
 
 /* Page wrapper */
 .page-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-area: header;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    width: 100%;
-}
-
-/* Container for the header */
-.container {
-    width: 80%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-/* Header Styles*/
-.top-header {
-    background-color: white;
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between; /* This explicitly places items at opposite ends */
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
 }
 
 .portal-title {
-    color: var(--lost-primary);
+    color: var(--primary-main);
     font-size: 24px;
-    /* Removed margin-right: auto */
 }
-
 .back-home-btn {
-    background-color: var(--lost-primary);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
+    background-color: var(--primary-main);
+    color: var(--btn-hover-light);
+    border: none;
+    padding: 12px 24px;
     border-radius: 8px;
     font-size: 16px;
-    transition: all 0.3s ease;
-    /* Removed margin-left: auto */
-}
-
-.back-home-btn:hover {
-    background-color: #3a4a80;
+    cursor: pointer;
 }
 
 /* Profile Container */
@@ -92,25 +78,32 @@ body {
 
 /* Sidebar Styles */
 .profile-sidebar {
-    width: 250px;
-    background-color: var(--lost-secondary);
-    padding: 30px 20px;
+    grid-area: sidebar;
+    background-color: var(--secondary-main);
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    border-right: 1.5px solid var(--primary-main);
+}
+
+.user-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    padding: 30px 0;
+    text-align: center;
 }
 
 .user-avatar {
     width: 100px;
     height: 100px;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    overflow: hidden;
+
 }
 
 .user-avatar img {
@@ -134,7 +127,7 @@ body {
     text-align: center;
 }
 
-.profile-nav {
+.nav-menu {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -142,15 +135,16 @@ body {
 }
 
 .nav-item {
-    padding: 12px 15px;
-    margin-bottom: 10px;
+    padding: 20px;
     text-decoration: none;
-    color: white;
+    color: var(--white);
     font-weight: bold;
     border-radius: 6px;
     transition: all 0.3s ease;
     text-align: left;
     width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-item:hover {
@@ -158,30 +152,26 @@ body {
 }
 
 .nav-item.active {
-    background-color: var(--lost-primary);
+    background-color: var(--primary-main);
     color: white;
 }
 
 .logout-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: white;
-    color: var(--lost-primary);
-    border: 2px solid var(--lost-primary);
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
+    padding: 20px;
+    text-decoration: none;
+    background-color: var(--white);
+    color: var(--text-color-dark);
     font-weight: bold;
-    margin-top: 30px;
     transition: all 0.3s ease;
-    width: 80%;
+    text-align: left;
+    width: 100%;
+    font-weight: 600px;;
+    border-top: 1.5px solid var(--primary-main);
 }
 
 .logout-btn:hover {
-    background-color: var(--lost-primary);
-    color: white;
+    background-color: var(--primary-main);
+    color: var(--text-color-light);
 }
 
 /* Main Content Styles */
@@ -196,7 +186,7 @@ body {
 }
 
 .content-header h2 {
-    color: var(--lost-primary);
+    color: var(--primary-main);
     font-size: 24px;
 }
 
@@ -204,6 +194,8 @@ body {
     display: flex;
     gap: 15px;
     align-items: center;
+    justify-content: right;
+    margin-right: 10px;
 }
 
 /* Filter Dropdown */
@@ -243,7 +235,7 @@ body {
     display: block;
     padding: 8px 15px;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .filter-options a:hover {
@@ -264,7 +256,7 @@ body {
 }
 
 .search-btn {
-    background-color: var(--lost-primary);
+    background-color: var(--primary-main);
     color: white;
     border: none;
     padding: 8px 12px;
@@ -278,13 +270,13 @@ body {
 .submissions-table {
     background-color: white;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: unset;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .table-header {
     display: flex;
-    background-color: var(--lost-primary);
+    background-color: var(--primary-main);
     color: white;
     font-weight: bold;
 }
@@ -376,7 +368,7 @@ body {
     display: block;
     padding: 8px 15px;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 .dropdown-item:hover {
@@ -406,13 +398,13 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: var(--lost-primary);
+    color: var(--primary-main);
     font-weight: bold;
 }
 
 .form-input {
-    background-color: var(--text-bg);
-    color: var(--text-color);
+    background-color: var(--text-bg-light);
+    color: var(--text-color-dark);
     width: 100%;
     padding: 10px 15px;
     border: 1px solid var(--border-color);
