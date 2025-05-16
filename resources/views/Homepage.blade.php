@@ -21,7 +21,7 @@
         margin-right: 1rem;
         }
 
-        .failed-message {
+        /* .failed-message {
         padding: 1rem;
         margin-bottom: 1rem;
         color: #da5959;
@@ -31,7 +31,7 @@
         margin-left: 1rem;
         margin-right: 1rem;
 
-        }
+        } */
     </style>
 
     <body class="lost-page">
