@@ -44,7 +44,7 @@
 
                         @auth
                             <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
-                            <a href="User-profile_report.html" class="profile-btn">Profile</a>
+                            <a href="{{ route('show.profile') }}" class="profile-btn">Profile</a>
                             <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="logout-btn">Log out</button>
@@ -84,200 +84,80 @@
                 <div class="main-content-area" id=lostContent>
                     <!-- Tab content containers -->
                     <div class="tab-content">
-
-                        <!-- Row 1 -->
-                        <div class="items-container">
-
-                            <!-- Item 1-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Hydro Flask" class="item-image">
+                        <!-- LOST -->
+                        @php $count = 0; @endphp
+                        @foreach($posts as $post)
+                            @if($post->lost_or_found === 'lost')
+                                @if($count % 3 === 0)
+                                    @if($count > 0)
+                                        </div> <!-- Close previous items-container -->
+                                    @endif
+                                    <div class="items-container">
+                                @endif
+                                <div class="item-card">
+                                    <div class="item-image-container">
+                                        @if($post->image_path)
+                                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->item_name }}" class="item-image">
+                                        @else
+                                            <img src="assets/default.png" alt="No Image" class="item-image">
+                                        @endif
+                                    </div>
+                                    <div class="item-details">
+                                        <p class="detail"><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
+                                        <p class="detail"><strong>Item:</strong> {{ $post->item_name }}</p>
+                                        <p class="detail"><strong>Contact Details:</strong></p>
+                                        <p class="detail">{{ $post->user->name ?? 'Unknown' }}</p>
+                                        <p class="detail">{{ $post->user->phone ?? '' }}</p>
+                                        <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
+                                        <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
+                                    </div>
                                 </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Hydro Flask</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> naay dent</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/1990</p>
-                                    <p class="detail"><strong>Item:</strong> Playstation 5</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Laptop" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 04/15/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Laptop</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">John Smith</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> Black Dell laptop</p>
-                                    <p class="detail posted-by">Posted by: johnsmith</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 2nd row -->
-                        <div class="items-container">
-                            <!-- Item 1-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Hydro Flask" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Hydro Flask</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> naay dent</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/1990</p>
-                                    <p class="detail"><strong>Item:</strong> Playstation 5</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Laptop" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 04/15/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Laptop</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">John Smith</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> Black Dell laptop</p>
-                                    <p class="detail posted-by">Posted by: johnsmith</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                @php $count++; @endphp
+                            @endif
+                        @endforeach
+                        @if($count > 0)
+                            </div> <!-- Close last items-container -->
+                        @endif
                 </div>
-            </div>
+                </div>
                 <!-- Main content area with light background (FOUND) -->
-                <div class="container">
-                <div class="main-content-area" id=foundContent>
-                    <!-- Tab content containers -->
+                <div class="main-content-area" id="foundContent">
                     <div class="tab-content">
-
-                        <!-- Row 1 -->
-                        <div class="items-container">
-
-                            <!-- Item 1-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Hydro Flask" class="item-image">
+                        <!-- FOUND -->
+                        @php $count = 0; @endphp
+                        @foreach($posts as $post)
+                            @if($post->lost_or_found === 'found')
+                                @if($count % 3 === 0)
+                                    @if($count > 0)
+                                        </div> <!-- Close previous items-container -->
+                                    @endif
+                                    <div class="items-container">
+                                @endif
+                                <div class="item-card">
+                                    <div class="item-image-container">
+                                        @if($post->image_path)
+                                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->item_name }}" class="item-image">
+                                        @else
+                                            <img src="assets/default.png" alt="No Image" class="item-image">
+                                        @endif
+                                    </div>
+                                    <div class="item-details">
+                                        <p class="detail"><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
+                                        <p class="detail"><strong>Item:</strong> {{ $post->item_name }}</p>
+                                        <p class="detail"><strong>Contact Details:</strong></p>
+                                        <p class="detail">{{ $post->user->name ?? 'Unknown' }}</p>
+                                        <p class="detail">{{ $post->user->phone ?? '' }}</p>
+                                        <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
+                                        <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
+                                    </div>
                                 </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Hydro Flask</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> naay dent</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/1990</p>
-                                    <p class="detail"><strong>Item:</strong> Playstation 5</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Laptop" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 04/15/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Laptop</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">John Smith</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> Black Dell laptop</p>
-                                    <p class="detail posted-by">Posted by: johnsmith</p>
-                                </div>
-                            </div>
+                                @php $count++; @endphp
+                            @endif
+                        @endforeach
+                        @if($count > 0)
+                            </div> <!-- Close last items-container -->
+                        @endif
                         </div>
-                        
-                        <!-- 2nd row -->
-                        <div class="items-container">
-                            <!-- Item 1-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 1.png" alt="Hydro Flask" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/2025</p>
-                                    <p class="detail"><strong>Item:</strong> Hydro Flask</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail"><strong>Other details:</strong> naay dent</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2-->
-                            <div class="item-card">
-                                <div class="item-image-container">
-                                    <img src="assets\Item 2.png" alt="PlayStation 5" class="item-image">
-                                </div>
-                                <div class="item-details">
-                                    <p class="detail"><strong>Last seen:</strong> 03/23/1990</p>
-                                    <p class="detail"><strong>Item:</strong> Playstation 5</p>
-                                    <p class="detail"><strong>Contact Details:</strong></p>
-                                    <p class="detail">Alex Neal Albinda</p>
-                                    <p class="detail">09xxxxxxxxx</p>
-                                    <p class="detail posted-by">Posted by: alasdiel</p>
-                                </div>
-                            </div> <!-- item card-->
-                        </div> <!--items-container-->
                     </div>
                 </div>
             </div>
