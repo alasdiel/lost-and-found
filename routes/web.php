@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/report', [FormController::class, 'showReport'])->name('show.report');
 Route::post('/report', [FormController::class, 'report'])->middleware('auth')->name('report');
+
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('show.profile');
+Route::post('/profile', [ProfileController::class, 'updateProfile'])->name('update.profile');
 // Database
 Route::get('/dbconn', function(){
     return view('database');
