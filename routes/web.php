@@ -35,7 +35,7 @@ Route::get('/profile', [ProfileController::class, 'showProfile'])->name('show.pr
 Route::post('/profile', [ProfileController::class, 'updateProfile'])->middleware('auth')->name('update.profile');
 
 Route::get('/dashboard', [AdminController::class, 'showDashboard'])->middleware('auth', 'admin')->name('show.dashboard');
-Route::post('/dashboard', [AdminController::class, 'approveReport'])->middleware('auth', 'admin')->name('approveReport');
+Route::post('/dashboard/handle/{id}', [AdminController::class, 'handle'])->middleware('auth', 'admin')->name('admin.handle');
 
 // Database
 Route::get('/dbconn', function(){

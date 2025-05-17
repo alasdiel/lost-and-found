@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost and Found Portal - Admin</title>
-    @vite(['resources/css/admin-styles.css'])
+    @vite(['resources/css/admin_styles.css'])
 </head>
 <body>
     <div class="page-wrapper">
@@ -45,75 +45,61 @@
             <div id="lost-reports" class="tab-content">
                 <h2 class="section-title">Pending Post Request</h2>
                 <p class="lost-section">Lost Reports</p>
-                <div class="requests-container">
-                    <!-- Request Item 1 -->
-                    <div class="request-item">
-                        <div class="item-image">
-                            <img src="assets/Item 2.png" alt="Hydro Flask" class="item-img">
+                    <div class="requests-container">
+                    @foreach($posts as $post)
+                        @if($post->status == 1 && $post->lost_or_found == 'lost')
+                        <div class="request-item">
+                            <div class="item-image">
+                                <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">
+                            </div>
+                            <div class="item-details">
+                                <p><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
+                                <p><strong>Item:</strong> {{ $post->item_name }}</p>
+                                <p><strong>Contact Details:</strong></p>
+                                <p>{{ $post->user->name ?? 'Unknown' }}</p>
+                                <p>{{ $post->user->contact_number ?? '' }}</p>
+                                <p><strong>Other details:</strong> {{ $post->other_details }}</p>
+                                <p><strong>Posted by:</strong> {{ $post->user->username ?? 'unknown' }}</p>
+                            </div>
+                            <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                @csrf
+                                <button name="action" value="approve" class="approve-btn">Approve</button>
+                                <button name="action" value="decline" class="decline-btn">Decline</button>
+                            </form>
                         </div>
-                        <div class="item-details">
-                            <p><strong>Last seen:</strong> 03/23/2025</p>
-                            <p><strong>Item:</strong> Hydro Flask</p>
-                            <p><strong>Contact Details:</strong></p>
-                            <p>Alex Neal Albinda</p>
-                            <p>09xxxxxxxx</p>
-                            <p><strong>Other details:</strong> navy dent</p>
-                            <p><strong>Posted by:</strong> alasdiel</p>
+                        @endif
+                    @endforeach
+                </div>
+                <!-- Found Reports Section -->
+                <div id="found-reports" class="tab-content">
+                    <h2 class="section-title">Pending Post Request</h2>
+                    <p class="found-section">Found Reports</p>
+                    <div class="requests-container">
+                    @foreach($posts as $post)
+                        @if($post->status == 1 && $post->lost_or_found == 'lost')
+                        <div class="request-item">
+                            <div class="item-image">
+                                <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">
+                            </div>
+                            <div class="item-details">
+                                <p><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
+                                <p><strong>Item:</strong> {{ $post->item_name }}</p>
+                                <p><strong>Contact Details:</strong></p>
+                                <p>{{ $post->user->name ?? 'Unknown' }}</p>
+                                <p>{{ $post->user->contact_number ?? '' }}</p>
+                                <p><strong>Other details:</strong> {{ $post->other_details }}</p>
+                                <p><strong>Posted by:</strong> {{ $post->user->username ?? 'unknown' }}</p>
+                            </div>
+                            <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                @csrf
+                                <button name="action" value="approve" class="approve-btn">Approve</button>
+                                <button name="action" value="decline" class="decline-btn">Decline</button>
+                            </form>
                         </div>
-                        <div class="action-buttons">
-                            <button class="approve-btn">Approve</button>
-                            <button class="decline-btn">Decline</button>
-                        </div>
-                    </div>
-
-                    <!-- Request Item 2 -->
-                    <div class="request-item">
-                        <div class="item-image">
-                            <img src="assets/Item 2.png" alt="PlayStation 5" class="item-img">
-                        </div>
-                        <div class="item-details">
-                            <p><strong>Last seen:</strong> 03/23/1990</p>
-                            <p><strong>Item:</strong> Playstation 5</p>
-                            <p><strong>Contact Details:</strong></p>
-                            <p>Alex Neal Albinda</p>
-                            <p>09xxxxxxxx</p>
-                            <p><strong>Posted by:</strong> alasdiel</p>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="approve-btn">Approve</button>
-                            <button class="decline-btn">Decline</button>
-                        </div>
+                        @endif
+                    @endforeach
                     </div>
                 </div>
-            </div>
-
-            <!-- Found Reports Section -->
-            <div id="found-reports" class="tab-content">
-                <h2 class="section-title">Pending Post Request</h2>
-                <p class="found-section">Found Reports</p>
-                <div class="requests-container">
-                    <!-- Request Item 1 -->
-                    <div class="request-item">
-                        <div class="item-image">
-                            <img src="assets/Item 1.png" alt="Hydro Flask" class="item-img">
-                        </div> 
-                        <div class="item-details">
-                            <p><strong>Last seen:</strong> 03/23/2025</p>
-                            <p><strong>Item:</strong> Hydro Flask</p>
-                            <p><strong>Contact Details:</strong></p>
-                            <p>Alex Neal Albinda</p>
-                            <p>09xxxxxxxx</p>
-                            <p><strong>Other details:</strong> navy dent</p>
-                            <p><strong>Posted by:</strong> alasdiel</p>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="approve-btn">Approve</button>
-                            <button class="decline-btn">Decline</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </body>
 </html>
