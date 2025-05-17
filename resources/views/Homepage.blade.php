@@ -41,7 +41,7 @@
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
-
+                        <div class="user-actions">
                         @auth
                             <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
                             <a href="{{ route('show.profile') }}" class="profile-btn">Profile</a>
@@ -59,6 +59,7 @@
                             <a href="#" class="dashboard-btn">Dashboard</a>
                             <a href="#" class="logout-btn">Log out</a>
                         -->
+                        </div>
                     </div>
                 </div>
             </div>
