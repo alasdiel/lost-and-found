@@ -55,14 +55,14 @@ class FormController extends Controller
         if ($request->input('action') === 'approve') {
             $post->status = 0;
             $post->save();
-            return back()->with('success', 'Post approved.');
+            return redirect()->route('show.home')->with('success', 'Post approved.');
         }
 
         if ($request->input('action') === 'decline') {
             $post->delete();
-            return back()->with('success', 'Post deleted.');
+            return redirect()->route('show.home')->with('success', 'Post deleted.');
         }
 
-        return back()->with('error', 'Invalid action.');
+        return redirect()->route('show.home')->with('error', 'Invalid action.');
     }
 }

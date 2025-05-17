@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeRoute::class, 'showHome'])->name('show.home');
-Route::post('/handle/{id}', [FormController::class, 'handle'])->name('handle');
+Route::post('/handle/{id}', [FormController::class, 'handle'])->middleware('auth')->name('handle');
 
 Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
 Route::post('/signup', [AuthController::class, 'sign_up'])->name('signup');
