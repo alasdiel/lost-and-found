@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost and Found Portal - Admin</title>
+    <title>Lost and Found Portal - Dashboard</title>
     @vite(['resources/css/admin_styles.css'])
 </head>
 <body>
@@ -56,7 +56,7 @@
                                 <p><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
                                 <p><strong>Item:</strong> {{ $post->item_name }}</p>
                                 <p><strong>Contact Details:</strong></p>
-                                <p>{{ $post->user->name ?? 'Unknown' }}</p>
+                                <p>{{ trim(($post->user->first_name ?? '') . ' ' . ($post->user->last_name ?? '')) ?: 'Unknown' }}</p>
                                 <p>{{ $post->user->contact_number ?? '' }}</p>
                                 <p><strong>Other details:</strong> {{ $post->other_details }}</p>
                                 <p><strong>Posted by:</strong> {{ $post->user->username ?? 'unknown' }}</p>
