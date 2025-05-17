@@ -167,7 +167,77 @@
     </div><!-- End of Page Wrapper -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {   
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get tab elements
+            const reportsTab = document.getElementById('reports-tab');
+            const settingsTab = document.getElementById('settings-tab');
+            
+            // Get content elements
+            const reportsContent = document.getElementById('reports-content');
+            const settingsContent = document.getElementById('settings-content');
+            
+            // Show initial tab (Reports tab)
+            reportsContent.classList.add('active');
+            settingsContent.classList.remove('active');
+            reportsTab.classList.add('active');
+            settingsTab.classList.remove('active');
+            
+            // Tab switching functionality
+            reportsTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active tab
+                reportsTab.classList.add('active');
+                settingsTab.classList.remove('active');
+                
+                // Show/hide content
+                reportsContent.classList.add('active');
+                settingsContent.classList.remove('active');
+            });
+            
+            settingsTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active tab
+                settingsTab.classList.add('active');
+                reportsTab.classList.remove('active');
+                
+                // Show/hide content
+                settingsContent.classList.add('active');
+                reportsContent.classList.remove('active');
+            });
+            
+            // Filter dropdown functionality
+            const filterBtn = document.querySelector('.filter-btn');
+            const filterOptions = document.querySelector('.filter-options');
+            
+            if (filterBtn) {
+                filterBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    filterOptions.classList.toggle('show');
+                });
+            }
+            
+            // Get all status toggle buttons
+            const toggles = document.querySelectorAll('.dropdown-toggle');
+            
+            // Add click event to each toggle
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Close all other open dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        if (menu !== this.nextElementSibling) {
+                            menu.classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    this.nextElementSibling.classList.toggle('show');
+                });
+            });
+            
             // Add click event to dropdown items
             document.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', function(e) {
@@ -200,6 +270,9 @@
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
                     menu.classList.remove('show');
                 });
+                if (filterOptions) {
+                    filterOptions.classList.remove('show');
+                }
             });
         });
     </script>

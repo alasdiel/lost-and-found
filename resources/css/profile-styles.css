@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-/* Profile Page Styles */
-.profile-page {
-    --sidebar-bg: var(--lost-secondary);
-    --sidebar-width: 250px;
-    --content-bg: #f0e8e8;
-    --border-color: #ddd;
-    --active-tab-bg: #2e3a6a;
-    --active-tab-color: white;
-    --inactive-tab-bg: transparent;
-    --inactive-tab-color: #2e3a6a;
-=======
 :root {
     --primary-main: #2e3a6a;
     --secondary-main: #6878c0;
@@ -21,34 +9,10 @@
     --text-color-light: #fff;
     --content-bg: #f0e8e8;
     --border-color: #ddd;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     --button-bg: #2e3a6a;
     --button-color: white;
     --status-resolved-bg: #6ca46c;
     --status-resolved-color: white;
-<<<<<<< HEAD
-}
-
-/* Page wrapper for profile pages */
-.profile-page .page-wrapper {
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-}
-
-.page-wrapper{
-    display: inline-flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: white;
-    justify-content: flex-end;
-}
-
-/* Container for the header */
-.profile-page .container {
-    max-width: 100%;
-    padding: 0 20px;
-=======
     --status-pending-bg: #ffc107;
     --status-pending-color: #333;
 }
@@ -101,17 +65,12 @@ body {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Profile Container */
 .profile-container {
     display: flex;
-<<<<<<< HEAD
-    min-height: calc(100vh - 100px);
-=======
     flex: 1; /* Make it take all available space */
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -119,19 +78,6 @@ body {
 
 /* Sidebar Styles */
 .profile-sidebar {
-<<<<<<< HEAD
-    width: var(--sidebar-width);
-    background-color: var(--sidebar-bg);
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    min-height: calc(100vh - 100px);
-    position: sticky;
-    top: 100px;
-=======
     grid-area: sidebar;
     background-color: var(--secondary-main);
     color: var(--text-color-light);
@@ -146,27 +92,17 @@ body {
     align-items: center;
     padding: 30px 0;
     text-align: center;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .user-avatar {
     width: 100px;
     height: 100px;
-<<<<<<< HEAD
-    background-color: white;
-=======
     background-color: var(--white);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-<<<<<<< HEAD
-    overflow: hidden;
-=======
-
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .user-avatar img {
@@ -176,33 +112,21 @@ body {
 }
 
 .user-name {
-<<<<<<< HEAD
-    color: var(--lost-primary);
-=======
     color: white;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-size: 20px;
     margin-bottom: 5px;
     text-align: center;
 }
 
 .user-username {
-<<<<<<< HEAD
-    color: var(--lost-primary);
-=======
     color: white;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-size: 16px;
     margin-bottom: 30px;
     opacity: 0.8;
     text-align: center;
 }
 
-<<<<<<< HEAD
-.profile-nav {
-=======
 .nav-menu {
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -210,26 +134,16 @@ body {
 }
 
 .nav-item {
-<<<<<<< HEAD
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: var(--inactive-tab-color);
-=======
     padding: 20px;
     text-decoration: none;
     color: var(--white);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-weight: bold;
     border-radius: 6px;
     transition: all 0.3s ease;
     text-align: left;
     width: 100%;
-<<<<<<< HEAD
-=======
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .nav-item:hover {
@@ -237,32 +151,6 @@ body {
 }
 
 .nav-item.active {
-<<<<<<< HEAD
-    background-color: var(--active-tab-bg);
-    color: var(--active-tab-color);
-}
-
-.logout-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: white;
-    color: var(--lost-primary);
-    border: 2px solid var(--lost-primary);
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 30px;
-    transition: all 0.3s ease;
-    width: 80%;
-}
-
-.logout-btn:hover {
-    background-color: var(--lost-primary);
-    color: white;
-=======
     background-color: var(--primary-main);
     color: white;
 }
@@ -283,7 +171,6 @@ body {
 .logout-btn:hover {
     background-color: var(--primary-main);
     color: var(--text-color-light);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Main Content Styles */
@@ -291,30 +178,14 @@ body {
     flex: 1;
     background-color: var(--content-bg);
     padding: 30px;
-<<<<<<< HEAD
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    min-height: calc(100vh - 100px);
 }
 
 .content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-=======
-}
-
-.content-header {
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     margin-bottom: 30px;
 }
 
 .content-header h2 {
-<<<<<<< HEAD
-    color: var(--lost-primary);
-=======
     color: var(--primary-main);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-size: 24px;
 }
 
@@ -322,11 +193,8 @@ body {
     display: flex;
     gap: 15px;
     align-items: center;
-<<<<<<< HEAD
-=======
     justify-content: right;
     margin-right: 10px;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Filter Dropdown */
@@ -366,11 +234,7 @@ body {
     display: block;
     padding: 8px 15px;
     text-decoration: none;
-<<<<<<< HEAD
-    color: var(--text-color);
-=======
     color: var(--text-color-dark);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .filter-options a:hover {
@@ -391,11 +255,7 @@ body {
 }
 
 .search-btn {
-<<<<<<< HEAD
-    background-color: var(--button-bg);
-=======
     background-color: var(--primary-main);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     color: white;
     border: none;
     padding: 8px 12px;
@@ -409,21 +269,13 @@ body {
 .submissions-table {
     background-color: white;
     border-radius: 8px;
-<<<<<<< HEAD
-    overflow: hidden;
-=======
     overflow: unset;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .table-header {
     display: flex;
-<<<<<<< HEAD
-    background-color: var(--lost-primary);
-=======
     background-color: var(--primary-main);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     color: white;
     font-weight: bold;
 }
@@ -444,9 +296,6 @@ body {
     align-items: center;
 }
 
-<<<<<<< HEAD
-.status-resolved {
-=======
 /* Status styles */
 .status-cell {
     display: flex;
@@ -455,7 +304,6 @@ body {
 }
 
 .status-approved {
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     background-color: var(--status-resolved-bg);
     color: var(--status-resolved-color);
     padding: 5px 10px;
@@ -464,14 +312,6 @@ body {
     font-weight: bold;
 }
 
-<<<<<<< HEAD
-/* Settings Form */
-.settings-form {
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-=======
 .status-pending {
     background-color: var(--status-pending-bg);
     color: var(--status-pending-color);
@@ -540,7 +380,6 @@ body {
     border-radius: 8px;
     padding: 30px;
     box-shadow: 6px 0 8px rgba(45, 59, 110, 0.3);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .form-row {
@@ -558,24 +397,11 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-<<<<<<< HEAD
-    color: var(--lost-primary);
-=======
     color: var(--primary-main);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-weight: bold;
 }
 
 .form-input {
-<<<<<<< HEAD
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-=======
     background-color: var(--text-bg-light);
     color: var(--text-color-dark);
     width: 100%;
@@ -587,7 +413,6 @@ body {
 
 
 
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 .form-actions {
     display: flex;
     justify-content: flex-end;
@@ -596,11 +421,7 @@ body {
 
 .update-btn {
     background-color: var(--button-bg);
-<<<<<<< HEAD
-    color: white;
-=======
     color: var(--button-color);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     border: none;
     padding: 12px 30px;
     border-radius: 25px;
@@ -611,47 +432,17 @@ body {
 }
 
 .update-btn:hover {
-<<<<<<< HEAD
-    background-color: #3a4a80;
-}
-
-/* Back to Home Button */
-.back-home-btn {
-    background-color: var(--lost-primary);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.back-home-btn:hover {
-    background-color: #3a4a80;
-}
-
-/* Adjust header for profile pages */
-.profile-page .top-header {
-    padding: 27px;
-    margin-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-=======
     background-color: var(--button-color);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 
 /* Responsive Styles */
-<<<<<<< HEAD
-=======
 @media (max-width: 1024px) {
     .form-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 @media (max-width: 768px) {
     .profile-container {
         flex-direction: column;
@@ -685,13 +476,9 @@ body {
     .table-cell {
         padding: 10px;
     }
-<<<<<<< HEAD
-}
-=======
     
     .form-grid {
         grid-template-columns: 1fr;
     }
 }
 
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
