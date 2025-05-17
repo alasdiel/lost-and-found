@@ -27,7 +27,11 @@ class AuthController extends Controller
             'username' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:8|max:255|confirmed',
             'contact_email' => 'nullable|email|unique:users,contact_email',
-            'contact_number' => 'nullable|string|regex:/^(09\d{9}|\+639\d{9})$/'
+            'contact_number' => [
+                'nullable',
+                'string',
+                'regex:/^(09\d{9}|\+639\d{9})$/'
+            ],
         ]);
         
         $valid['password'] = Hash::make($valid['password']);

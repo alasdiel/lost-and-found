@@ -44,6 +44,7 @@
                         <div class="user-actions">
                         @auth
                             @if (Auth::user()->is_admin)
+                                <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
                                 <a href="{{ route('show.dashboard') }}" class="dashboard-btn">Dashboard</a>
                                 <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf
@@ -59,6 +60,7 @@
                             @endif
                         @endauth
                         @guest
+                            <a href="{{ route('show.signup') }}" class="submit-btn">Sign up</a>
                             <a href="{{ route('show.login') }}" class="login-btn">Log in</a>
                         @endguest
 
@@ -114,6 +116,11 @@
                                         <p class="detail">{{ $post->user->phone ?? '' }}</p>
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
+                                        <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                            @csrf
+                                            <!-- eve wala koy css vvvvv -->
+                                            <button name="action" value="decline" class="decline-btn">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                                 @php $count++; @endphp
@@ -121,6 +128,14 @@
                         @endforeach
                         @if($count > 0)
                             </div> <!-- Close last items-container -->
+                        @else
+                            <div class="items-container" style="display: flex; justify-content: center; align-items: center;width: 100%;">
+                                <div class="item-card" style="padding: 100px; text-align: center;">
+                                    <div class="item-details" style="text-align:center;">
+                                        <p class="detail"><strong>No found results</strong></p>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                 </div>
                 </div>
@@ -153,6 +168,11 @@
                                         <p class="detail">{{ $post->user->phone ?? '' }}</p>
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
+                                        <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                            @csrf
+                                            <!-- eve wala koy css vvvvv -->
+                                            <button name="action" value="decline" class="decline-btn">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                                 @php $count++; @endphp
@@ -160,6 +180,14 @@
                         @endforeach
                         @if($count > 0)
                             </div> <!-- Close last items-container -->
+                        @else
+                            <div class="items-container" style="display: flex; justify-content: center; align-items: center;width: 100%;">
+                                <div class="item-card" style="padding: 100px; text-align: center;">
+                                    <div class="item-details" style="text-align:center;">
+                                        <p class="detail"><strong>No found results</strong></p>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                         </div>
                     </div>
