@@ -114,7 +114,8 @@
                                         <p class="detail"><strong>Item:</strong> {{ $post->item_name }}</p>
                                         <p class="detail"><strong>Contact Details:</strong></p>
                                         <p class="detail">{{ trim(($post->user->first_name ?? '') . ' ' . ($post->user->last_name ?? '')) ?: 'Unknown' }}</p>
-                                        <p class="detail">{{ $post->user->phone ?? '' }}</p>
+                                        <p class="detail">{{ $post->user->contact_email ?? '' }}</p>
+                                        <p class="detail">{{ $post->user->contact_number ?? '' }}</p>
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
                                         @if(Auth::check() && (Auth::user()->is_admin || Auth::id() === $post->user_id))
