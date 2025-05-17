@@ -14,11 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function() {
             // Redirect to guest homepage when logging out
-<<<<<<< HEAD
-            window.location.href = 'Homepage_guest_lost.html';
-=======
             window.location.href = 'Homepage_guest_lost.blade.php';
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
         });
     }
     
@@ -28,11 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         backHomeBtn.addEventListener('click', function(e) {
             e.preventDefault();
             // Redirect to user homepage
-<<<<<<< HEAD
-            window.location.href = 'Homepage_user_lost.html';
-=======
             window.location.href = 'Homepage_user_lost.blade.php';
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
         });
     }
     
