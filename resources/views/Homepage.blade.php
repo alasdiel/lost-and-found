@@ -118,7 +118,7 @@
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
                                         @if(Auth::check() && (Auth::user()->is_admin || Auth::id() === $post->user_id))
-                                            <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                            <form class="action-buttons" method="POST" action="{{ route('handle', $post->id) }}">
                                                 @csrf
                                                 <button name="action" value="decline" class="decline-btn">Delete</button>
                                             </form>
@@ -170,7 +170,7 @@
                                         <p class="detail">{{ $post->user->phone ?? '' }}</p>
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
-                                        <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                        <form class="action-buttons" method="POST" action="{{ route('handle', $post->id) }}">
                                             @csrf
                                             <!-- eve wala koy css vvvvv -->
                                             <button name="action" value="decline" class="decline-btn">Delete</button>

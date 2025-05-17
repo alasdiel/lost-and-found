@@ -4,20 +4,6 @@
     --background-color: #a7b6e0;
     --text-color: #333;
     --white: #ffffff;
-<<<<<<< HEAD
-    
-    /* Lost page specific colors */
-    --lost-primary: #2e3a6a;
-    --lost-secondary: #a7b6e0;
-    --lost-card-bg: #7886C7;
-    --lost-container-bg: #f8f0f0;
-    
-    /* Found page specific colors*/
-    --found-primary: #2e3a6a;
-    --found-secondary: #a7b6e0;
-    --found-card-bg: #f8f0f0;
-    --found-container-bg: #7886C7;
-=======
     --primary: #2e3a6a;
     --secondary: #a7b6e0;
 
@@ -28,7 +14,6 @@
     /* Found page specific colors*/
     --found-card-bg: #f8f0f0;
     --found-container-bg: #7886c7;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Reset and base styles */
@@ -39,21 +24,6 @@
     font-family: Arial, sans-serif;
 }
 
-<<<<<<< HEAD
-body {
-    background-color: var(--background-color);
-}
-
-/* Page-specific body classes */
-body.lost-page {
-    /* Override variables for lost page if needed */
-    --background-color: var(--lost-secondary);
-}
-
-body.found-page {
-    /* Override variables for found page if needed */
-    --background-color: var(--found-secondary);
-=======
 html,
 body {
     width: 100%;
@@ -65,21 +35,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .page-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-<<<<<<< HEAD
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-=======
     width: 100%;
     align-items: center;
 }
@@ -89,25 +50,12 @@ body {
     max-width: 1500px; /* Increased from 1200px */
     margin: 0 auto;
     padding: 0;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Top header with white background */
 .top-header {
     background-color: var(--white);
     padding: 15px 0;
-<<<<<<< HEAD
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-=======
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -120,66 +68,28 @@ body {
     align-items: center;
     padding: 20px;
     background-color: var(--white);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Header styles */
 .portal-title {
-<<<<<<< HEAD
-    color: var(--lost-primary);
-=======
     color: var(--primary);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     font-size: 24px;
     font-weight: bold;
 }
 
-<<<<<<< HEAD
-/* Lost page specific header styles */
-.lost-page .portal-title {
-    color: var(--lost-primary);
-}
-
-/* Found page specific header styles */
-.found-page .portal-title {
-    color: var(--found-primary);
-}
-
-.login-btn {
-    background-color: var(--lost-primary);
-    color: var(--white);
-    padding: 10px 20px;
-=======
 .login-btn {
     background-color: var(--primary);
     color: var(--white);
     padding: 12px 24px;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
 }
 
-<<<<<<< HEAD
-/* Lost page specific login button */
-.lost-page .login-btn {
-    background-color: var(--lost-primary);
-}
-
-/* Found page specific login button */
-.found-page .login-btn {
-    background-color: var(--found-primary);
-}
-
-/* Search bar styles */
-.search-container {
-    margin-bottom: 20px;
-=======
 /* Search bar styles */
 .search-container {
     margin-bottom: 20px;
     width: 100%;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .search-input {
@@ -201,21 +111,14 @@ body {
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
-<<<<<<< HEAD
-=======
     width: 100%;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .tab {
     flex: 1;
     text-align: center;
     padding: 15px 0;
-<<<<<<< HEAD
-    background-color: var(--lost-primary);
-=======
     background-color: var(--primary);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     color: var(--white);
     cursor: pointer;
     font-weight: bold;
@@ -223,73 +126,15 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-<<<<<<< HEAD
-/* Lost page specific tab styles */
-.lost-page .tab {
-    background-color: var(--lost-primary);
-}
-
-/* Found page specific tab styles */
-.found-page .tab {
-    background-color: var(--found-primary);
-}
-
-.tab.active {
-    background-color: var(--white);
-    color: var(--lost-primary);
-}
-
-/* Lost page specific active tab */
-.lost-page .tab.active {
-    color: var(--lost-primary);
-}
-
-/* Found page specific active tab */
-.found-page .tab.active {
-    color: var(--found-primary);
-}
-=======
 .tab.active {
     background-color: var(--white);
     color: var(--primary);
 }
 
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 
 /* Tab content */
 .tab-content {
     transition: opacity 0.3s ease;
-<<<<<<< HEAD
-}
-
-/* Items container */
-.items-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    background-color: var(--lost-container-bg);
-    border-radius: 8px;
-    padding: 20px;
-    min-height: 400px;
-}
-
-/* Lost page specific items container */
-.lost-page .items-container {
-    background-color: var(--lost-container-bg);
-}
-
-/* Found page specific items container */
-.found-page .items-container {
-    background-color: var(--found-container-bg);
-}
-
-/* Item card styles */
-.item-card {
-    flex: 1;
-    min-width: 300px;
-    background-color: var(--lost-card-bg);
-=======
     background-color: var(--lost-container-bg);
     border-radius: 8px;
     padding: 20px;
@@ -325,13 +170,10 @@ body {
   /* Fixed width for exactly 3 cards per row */
     width: calc((100% - 50px) / 3);
     flex: 0 0 calc((100% - 50px) / 3);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-=======
     margin-bottom: 20px;
 }
 
@@ -340,7 +182,6 @@ body {
     margin-left: 0; /* Align to the left */
     width: calc((100% - 40px) / 3); /* Same width as other cards */
     flex: 0 0 calc((100% - 40px) / 3);
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 /* Lost page specific item cards */
@@ -353,14 +194,8 @@ body {
     background-color: var(--found-card-bg);
 }
 
-<<<<<<< HEAD
-
-.item-image-container {
-    height: 250px;
-=======
 .item-image-container {
     height: 200px;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     background-color: var(--white);
     display: flex;
     justify-content: center;
@@ -389,11 +224,7 @@ body {
 /* Found page specific item details text color */
 .found-page .item-details {
     color: var(--text-color);
-<<<<<<< HEAD
-}
-=======
     }
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 
 .detail {
     margin-bottom: 5px;
@@ -406,8 +237,6 @@ body {
     opacity: 0.8;
 }
 
-<<<<<<< HEAD
-=======
 .action-buttons {
     display: flex;
     justify-content: right;
@@ -433,7 +262,6 @@ body {
     border: 2px solid var(--primary);
 }
 
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 /* User page specific styles to add to your existing CSS */
 
 /* User actions container in header */
@@ -443,19 +271,12 @@ body {
     align-items: center;
 }
 
-<<<<<<< HEAD
-/* Submit button styling */
-.submit-btn {
-    background-color: var(--white);
-    padding: 10px 20px;
-=======
 /* Submit button styling - User */
 .submit-btn {
     background-color: var(--white);
     color: var(--primary);
     border-color: var(--primary);
     padding: 12px 24px;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
@@ -463,11 +284,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-<<<<<<< HEAD
-/* Profile button styling */
-.profile-btn {
-    padding: 10px 20px;
-=======
 /* Submit button hover effect */
 .submit-btn:hover {
     background-color: #f0f0f0;
@@ -478,7 +294,6 @@ body {
 .profile-btn {
     background-color: var(--primary);
     padding: 12px 24px;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
@@ -486,43 +301,6 @@ body {
     transition: background-color 0.3s;
 }
 
-<<<<<<< HEAD
-/* Lost page specific submit button */
-.lost-page .submit-btn {
-    color: var(--lost-primary);
-    border-color: var(--lost-primary);
-}
-
-.lost-page .submit-btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* Found page specific submit button */
-.found-page .submit-btn {
-    color: var(--found-primary);
-    border-color: var(--found-primary);
-}
-
-.found-page .submit-btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* Lost page specific profile button */
-.lost-page .profile-btn {
-    background-color: var(--lost-primary);
-}
-
-.lost-page .profile-btn:hover {
-    background-color: #3a4a80;
-}
-
-/* Found page specific profile button */
-.found-page .profile-btn {
-    background-color: var(--found-primary);
-}
-
-.found-page .profile-btn:hover {
-=======
 /* Proile button hover effect */
 .profile-btn:hover {
     background-color: #3a4a80;
@@ -560,25 +338,18 @@ body {
 
 /* Logout button hover effect */
 .logout-btn:hover {
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     background-color: #3a4a80;
 }
 
 /* Footer styles */
 footer {
     text-align: center;
-<<<<<<< HEAD
-    margin-top: 20px;
-    color: var(--white);
-    padding: 10px 0;
-=======
     margin-top: 10px;
     margin-bottom: 20px;
     color: var(--white);
     padding: 10px 0;
     width: 100%;
     position: relative;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
 }
 
 .login-link {
@@ -593,15 +364,6 @@ footer {
 }
 
 /* Responsive styles */
-<<<<<<< HEAD
-@media (max-width: 768px) {
-    .items-container {
-        flex-direction: column;
-    }
-    
-    .item-card {
-        min-width: 100%;
-=======
 @media (max-width: 1200px) {
     /* For medium screens */
     .item-card,
@@ -627,21 +389,12 @@ footer {
     .item-card:nth-child(3) {
         width: 100%;
         flex: 0 0 100%;
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2
     }
 
     .user-actions {
         flex-direction: column;
         gap: 5px;
     }
-<<<<<<< HEAD
-    
-    .submit-btn, .profile-btn {
-        font-size: 16px;
-        padding: 8px 15px;
-    }
-}
-=======
 
     .submit-btn,
     .profile-btn {
@@ -654,4 +407,3 @@ footer {
         max-height: calc(100vh - 280px);
     }
 }
->>>>>>> 1ca6faf2fac7c1251f4a2884cdb9c607e65c49f2

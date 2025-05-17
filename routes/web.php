@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeRoute::class, 'showHome'])->name('show.home');
+Route::get('/handle/{id}', [FormController::class, 'handle'])->name('handle');
 
 Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
 Route::post('/signup', [AuthController::class, 'sign_up'])->name('signup');
@@ -36,6 +37,7 @@ Route::post('/profile', [ProfileController::class, 'updateProfile'])->middleware
 
 Route::get('/dashboard', [AdminController::class, 'showDashboard'])->middleware('auth', 'admin')->name('show.dashboard');
 Route::post('/dashboard/handle/{id}', [AdminController::class, 'handle'])->middleware('auth', 'admin')->name('admin.handle');
+
 
 // Database
 Route::get('/dbconn', function(){
