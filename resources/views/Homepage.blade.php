@@ -41,7 +41,7 @@
                 <div class="container">
                     <div class="header-content">
                         <h1 class="portal-title">Lost and Found Portal</h1>
-
+                        <div class="user-actions">
                         @auth
                             @if (Auth::user()->is_admin)
                                 <a href="{{ route('admin.dashboard') }}" class="dashboard-btn">Dashboard</a>
@@ -67,6 +67,7 @@
                             <a href="#" class="dashboard-btn">Dashboard</a>
                             <a href="#" class="logout-btn">Log out</a>
                         -->
+                        </div>
                     </div>
                 </div>
             </div>
