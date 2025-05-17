@@ -129,6 +129,7 @@ body {
 
 .nav-item {
     padding: 20px;
+    display:block;
     display: block;
     text-decoration: none;
     color: var(--white);
