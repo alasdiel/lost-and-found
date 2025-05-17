@@ -117,10 +117,12 @@
                                         <p class="detail">{{ $post->user->phone ?? '' }}</p>
                                         <p class="detail"><strong>Other details:</strong> {{ $post->other_details }}</p>
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
-                                        <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
-                                            @csrf
-                                            <button name="action" value="decline" class="decline-btn">Delete</button>
-                                        </form>
+                                        @if(Auth::check() && (Auth::user()->is_admin || Auth::id() === $post->user_id))
+                                            <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                                @csrf
+                                                <button name="action" value="decline" class="decline-btn">Delete</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                                 @php $count++; @endphp
