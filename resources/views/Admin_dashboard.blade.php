@@ -11,7 +11,7 @@
         <!-- Header -->
         <header class="header">
             <h1 class="portal-title">Lost and Found Portal</h1>
-            <button class="back-home-btn">Back to Home</button>
+            <a href="{{ route('show.home') }}" class="back-home-btn" style="text-decoration:none">Back to Home</a>
         </header>
 
         <!-- Sidebar -->
@@ -22,8 +22,8 @@
                     <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='7' r='4'/><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/></svg>" alt="User Avatar">
                 </div>
                 <!-- Name and Username -->
-                <h2 class="admin-name">Admin</h2>
-                <p class="admin-username">Admin</p>
+                <h2 class="admin-name">{{ Auth::user()->username ?? 'Admin' }}</h2>
+                <p class="admin-username">Administrator</p>
             </div>
 
             <!-- Nav Bar -->
