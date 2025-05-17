@@ -304,7 +304,7 @@ body {
     align-items: center;
 }
 
-.status-resolved {
+.status-approved {
     background-color: var(--status-resolved-bg);
     color: var(--status-resolved-color);
     padding: 5px 10px;

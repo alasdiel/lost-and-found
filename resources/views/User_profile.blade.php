@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lost and Found Portal - User Profile</title>
     @vite(['resources/css/profile-styles.css'])
+    <style>
+        .success-message {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        color: #22543d;
+        background-color: #f0fff4;
+        border-radius: 10px;
+        width: 100%;
+        margin-right: 1rem;
+        }
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
@@ -48,7 +59,7 @@
             <div id="reports-content" class="tab-content">
                 <div class="content-header">
                     <h2>Submissions</h2>
-                    <div class="content-actions">
+                    {{-- <div class="content-actions">
                         {{-- <div class="filter-dropdown">
                             <button class="filter-btn">Filter ▼</button>
                             <div class="filter-options">
@@ -63,9 +74,13 @@
                             <input type="text" placeholder="Post ID" class="search-input">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: -25px; position: relative;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                         </div> --}}
-                    </div>
+
                 </div>
-                    
+                @if (session('success'))
+                    <div class="success-message">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="submissions-table active">
                     <!-- Table Header -->
                     <div class="table-header">
@@ -74,66 +89,27 @@
                         <div class="table-cell">Item Name</div>
                         <div class="table-cell">Status</div>
                     </div>
-                        
-                    <div class="table-row">
-                        <div class="table-cell">Lost</div>
-                        <div class="table-cell">LF001</div>
-                        <div class="table-cell">Hydro Flask</div>
-                        <div class="table-cell status-cell">
-                            <span class="status-pending">Pending</span>
-                            <div class="status-dropdown">
-                                <button class="dropdown-toggle">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item" data-status="pending">Pending</a>
-                                    <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
-                                </div>
+
+                    @if($posts->isEmpty())
+                        <div class="table-row">
+                            <div class="table-cell" colspan="4" style="text-align: center;">
+                                No submissions found.
                             </div>
                         </div>
-                    </div>
-                        
-                    <div class="table-row">
-                        <div class="table-cell">Found</div>
-                        <div class="table-cell">LF002</div>
-                        <div class="table-cell">Playstation 5</div>
-                        <div class="table-cell status-cell">
-                            <span class="status-pending">Pending</span>
-                            <div class="status-dropdown">
-                                <button class="dropdown-toggle">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item" data-status="pending">Pending</a>
-                                    <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
+                    @else
+                        @foreach($posts as $post)
+                            <div class="table-row">
+                                <div class="table-cell">{{ ucfirst($post->lost_or_found) }}</div>
+                                <div class="table-cell">{{ $post->id }}</div>
+                                <div class="table-cell">{{ $post->item_name }}</div>
+                                <div class="table-cell status-cell">
+                                    <span class="status-{{ $post->status == 1 ? 'pending' : 'approved' }}">
+                                        {{ $post->status == 1 ? 'Pending' : 'Approved' }}
+                                    </span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                        
-                    <div class="table-row">
-                        <div class="table-cell">Lost</div>
-                        <div class="table-cell">LF003</div>
-                        <div class="table-cell">Laptop</div>
-                        <div class="table-cell status-cell">
-                            <span class="status-pending">Pending</span>
-                            <div class="status-dropdown">
-                                <button class="dropdown-toggle">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item" data-status="pending">Pending</a>
-                                    <a href="#" class="dropdown-item" data-status="resolved">Resolved</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
@@ -144,51 +120,41 @@
                     <h2>User Information</h2>
                 </div>
                     
-                <form class="settings-form active">
-                    <!-- Row 1: Firstname, Lastname & Username-->
+                <form class="settings-form active" method="POST" action="{{ route('update.profile') }}">
+                    @csrf
+                    <!-- Row 1: Firstname, Lastname -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" value="Juan" class="form-input">
+                            <input type="text" id="firstName" name="first_name" value="{{ old('first_name', Auth::user()->first_name) }}" class="form-input" required>
                         </div>
-                            
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" value="Santos" class="form-input">
-                        </div>
-                            
-                        <div class="form-group">
-                            <label for="userName">User Name</label>
-                            <input type="text" id="userName" value="alasdiel" class="form-input">
+                            <input type="text" id="lastName" name="last_name" value="{{ old('last_name', Auth::user()->last_name) }}" class="form-input" required>
                         </div>
                     </div>
-                        
                     <!-- Row 2: Phone Number & Change Password  -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" id="phoneNumber" placeholder="Enter phone number" class="form-input">
+                            <input type="tel" id="phoneNumber" name="contact_number" value="{{ old('contact_number', Auth::user()->contact_number) }}" placeholder="Enter phone number" class="form-input">
                         </div>
-                            
                         <div class="form-group">
                             <label for="newPassword">Change Password</label>
-                            <input type="password" id="newPassword" placeholder="Enter new password" class="form-input">
+                            <input type="password" id="newPassword" name="password" placeholder="Enter new password" class="form-input" autocomplete="new-password">
                         </div>
                     </div>
-                        
                     <!-- Row 3: Email & Re-Enter Password -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter email address" class="form-input">
+                            <input type="email" id="email" name="contact_email" value="{{ old('contact_email', Auth::user()->contact_email) }}" placeholder="Enter email address" class="form-input" required>
                         </div>
-                        
                         <div class="form-group">
                             <label for="confirmPassword">Re-Enter Password</label>
-                            <input type="password" id="confirmPassword" placeholder="Confirm new password" class="form-input">
+                            <input type="password" id="confirmPassword" name="password_confirmation" placeholder="Confirm new password" class="form-input" autocomplete="new-password">
                         </div>
                     </div>
-                        
                     <!-- Update Button -->
                     <div class="form-actions">
                         <button type="submit" class="update-btn">Update</button>
