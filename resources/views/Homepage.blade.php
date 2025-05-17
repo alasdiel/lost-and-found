@@ -45,6 +45,7 @@
                         @auth
                             @if (Auth::user()->is_admin)
                                 <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
+                                <a href="{{ route('show.profile') }}" class="submit-btn">Profile</a>
                                 <a href="{{ route('show.dashboard') }}" class="dashboard-btn">Dashboard</a>
                                 <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf

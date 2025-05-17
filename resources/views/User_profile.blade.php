@@ -22,8 +22,8 @@
                     <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='7' r='4'/><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/></svg>" alt="User Avatar">
                 </div>
                 <!-- Name and Username -->
-                <h2 class="user-name">Juan Santos</h2>
-                <p class="user-username">alasdiel</p> 
+                <h2 class="user-name">{{ trim((Auth::user()->first_name ?? '') . ' ' . (Auth::user()->last_name ?? '')) ?: 'Unknown' }}</h2>
+                <p class="user-username">{{ Auth::user()->username ?? 'Username' }}</p> 
             </div>
 
             <!-- Nav Bar-->
@@ -35,7 +35,10 @@
             <!-- Logout Button -->
             <div class="logout-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    LOG OUT
+                <form method="POST" action="{{ route('logout') }}" style="display:inline">
+                    @csrf
+                    <button type="submit" style="all: unset; cursor: pointer;">LOG OUT</button>
+                </form>
             </div>
         </aside>
         
@@ -44,9 +47,9 @@
             <!-- Reports Tab Content -->
             <div id="reports-content" class="tab-content">
                 <div class="content-header">
-                    <h2>Latest Submission</h2>
+                    <h2>Submissions</h2>
                     <div class="content-actions">
-                        <div class="filter-dropdown">
+                        {{-- <div class="filter-dropdown">
                             <button class="filter-btn">Filter ▼</button>
                             <div class="filter-options">
                                 <a href="#">All</a>
@@ -55,11 +58,11 @@
                                 <a href="#">Pending</a>
                                 <a href="#">Resolved</a>
                             </div>
-                        </div>
-                        <div class="search-container">
+                        </div> --}}
+                        {{-- <div class="search-container">
                             <input type="text" placeholder="Post ID" class="search-input">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: -25px; position: relative;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                     
@@ -69,7 +72,6 @@
                         <div class="table-cell">Lost / Found</div>
                         <div class="table-cell">Post ID</div>
                         <div class="table-cell">Item Name</div>
-                        <div class="table-cell">Created Date</div>
                         <div class="table-cell">Status</div>
                     </div>
                         
@@ -77,7 +79,6 @@
                         <div class="table-cell">Lost</div>
                         <div class="table-cell">LF001</div>
                         <div class="table-cell">Hydro Flask</div>
-                        <div class="table-cell">03/23/2025</div>
                         <div class="table-cell status-cell">
                             <span class="status-pending">Pending</span>
                             <div class="status-dropdown">
@@ -98,7 +99,6 @@
                         <div class="table-cell">Found</div>
                         <div class="table-cell">LF002</div>
                         <div class="table-cell">Playstation 5</div>
-                        <div class="table-cell">03/23/1990</div>
                         <div class="table-cell status-cell">
                             <span class="status-pending">Pending</span>
                             <div class="status-dropdown">
@@ -119,7 +119,6 @@
                         <div class="table-cell">Lost</div>
                         <div class="table-cell">LF003</div>
                         <div class="table-cell">Laptop</div>
-                        <div class="table-cell">05/10/2025</div>
                         <div class="table-cell status-cell">
                             <span class="status-pending">Pending</span>
                             <div class="status-dropdown">
