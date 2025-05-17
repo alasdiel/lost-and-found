@@ -34,8 +34,13 @@
 
             <!-- Logout Button -->
             <div class="logout-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    LOG OUT
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    <form method="POST" action="{{ route('logout') }}" style="display:inline class="logout-btn">
+                        @csrf
+                        <button type="submit" style="all: unset; cursor: pointer;">LOG OUT</button>
+                    </form>
+                </div>
             </div>
         </aside>
 
@@ -46,8 +51,47 @@
                 <h2 class="section-title">Pending Post Request</h2>
                 <p class="lost-section">Lost Reports</p>
                     <div class="requests-container">
+                    @php $hasLostPosts = false; @endphp
                     @foreach($posts as $post)
                         @if($post->status == 1 && $post->lost_or_found == 'lost')
+                            @php $hasLostPosts = true; @endphp
+                            <div class="request-item">
+                                <div class="item-image">
+                                    <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">
+                                </div>
+                                <div class="item-details">
+                                    <p><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
+                                    <p><strong>Item:</strong> {{ $post->item_name }}</p>
+                                    <p><strong>Contact Details:</strong></p>
+                                    <p>{{ trim(($post->user->first_name ?? '') . ' ' . ($post->user->last_name ?? '')) ?: 'Unknown' }}</p>
+                                    <p>{{ $post->user->contact_number ?? '' }}</p>
+                                    <p><strong>Other details:</strong> {{ $post->other_details }}</p>
+                                    <p><strong>Posted by:</strong> {{ $post->user->username ?? 'unknown' }}</p>
+                                </div>
+                                <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
+                                    @csrf
+                                    <button name="action" value="approve" class="approve-btn">Approve</button>
+                                    <button name="action" value="decline" class="decline-btn">Decline</button>
+                                </form>
+                            </div>
+                        @endif
+                    @endforeach
+                    @if(!$hasLostPosts)
+                        <div class="no-reports">
+                                <p class="text-reports">No Lost Reports Found</p>
+                        </div>
+                    @endif
+                    </div>
+            </div>
+        <!-- Found Reports Section -->
+            <div id="found-reports" class="tab-content">
+                <h2 class="section-title">Pending Post Request</h2>
+                <p class="found-section">Found Reports</p>
+                <div class="requests-container">
+                    @php $hasFoundPosts = false; @endphp
+                    @foreach($posts as $post)
+                        @if($post->status == 1 && $post->lost_or_found == 'found')
+                        @php $hasFoundPosts = true; @endphp
                         <div class="request-item">
                             <div class="item-image">
                                 <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">
@@ -69,36 +113,11 @@
                         </div>
                         @endif
                     @endforeach
-                    </div>
-            </div>
-        <!-- Found Reports Section -->
-            <div id="found-reports" class="tab-content">
-                <h2 class="section-title">Pending Post Request</h2>
-                <p class="found-section">Found Reports</p>
-                <div class="requests-container">
-                @foreach($posts as $post)
-                    @if($post->status == 1 && $post->lost_or_found == 'lost')
-                    <div class="request-item">
-                        <div class="item-image">
-                            <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">
+                    @if(!$hasFoundPosts)
+                        <div class="no-reports">
+                                <p class="text-reports">No Found Reports Found</p>
                         </div>
-                        <div class="item-details">
-                            <p><strong>Last seen:</strong> {{ $post->last_seen_date }}</p>
-                            <p><strong>Item:</strong> {{ $post->item_name }}</p>
-                            <p><strong>Contact Details:</strong></p>
-                            <p>{{ trim(($post->user->first_name ?? '') . ' ' . ($post->user->last_name ?? '')) ?: 'Unknown' }}</p>
-                            <p>{{ $post->user->contact_number ?? '' }}</p>
-                            <p><strong>Other details:</strong> {{ $post->other_details }}</p>
-                            <p><strong>Posted by:</strong> {{ $post->user->username ?? 'unknown' }}</p>
-                        </div>
-                        <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
-                            @csrf
-                            <button name="action" value="approve" class="approve-btn">Approve</button>
-                            <button name="action" value="decline" class="decline-btn">Decline</button>
-                        </form>
-                    </div>
                     @endif
-                @endforeach
                 </div>
             </div>
         </div>    
