@@ -119,7 +119,6 @@
                                         <p class="detail posted-by">Posted by: {{ $post->user->username ?? 'unknown' }}</p>
                                         <form class="action-buttons" method="POST" action="{{ route('admin.handle', $post->id) }}">
                                             @csrf
-                                            <!-- eve wala koy css vvvvv -->
                                             <button name="action" value="decline" class="decline-btn">Delete</button>
                                         </form>
                                     </div>

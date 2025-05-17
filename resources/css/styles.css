@@ -237,6 +237,31 @@ body {
     opacity: 0.8;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+
+.decline-btn{
+    background-color: var(--white);
+    color: var(--primary);
+    border-color: var(--primary);
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    border: 2px solid;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.decline-btn:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    border: 2px solid var(--primary);
+}
+
 /* User page specific styles to add to your existing CSS */
 
 /* User actions container in header */
