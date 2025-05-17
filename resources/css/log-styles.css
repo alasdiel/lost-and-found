@@ -166,7 +166,12 @@ input[type="tel"] {
 .center-btn {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
+}
+
+.center-btn a {
+    display: block;
 }
 
 .login-btn {
@@ -188,6 +193,24 @@ input[type="tel"] {
 
 .login-btn:hover {
     background-color: #f5f5f5;
+}
+
+.error-message {
+    background-color: #e86a68;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    border: #c30010 2px solid;
+}
+
+.error-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #f1e3e5;
 }
 
 /* Sign Up Page Specific Styles */

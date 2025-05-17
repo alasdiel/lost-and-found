@@ -17,7 +17,7 @@
 
             <!-- Sign up form -->
             <div class="center-btn">
-                <button class="btn btn-primary">SIGN UP</button>
+                <a href="{{ route('show.signup') }}" class="btn btn-primary" style="text-decoration:none;text-align: center;">SIGN UP</a>
             </div>
 
             <!--Homepage link-->
@@ -31,8 +31,8 @@
             <h1>Welcome Back!</h1>
 
             <!--Text Field-->
-            <form>
-
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <!--Username-->
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -57,6 +57,15 @@
 
                 <!--Login button-->
                 <button type="submit" class="login-btn">LOG IN</button>
+                
+                <!-- validation errors -->
+                    @if ($errors->any())
+                        <ul class="error-message">
+                            @foreach ($errors->all() as $error)
+                                <li class="error-text">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
             
             </form>
 

@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/styles.css',
                 'resources/css/log-styles.css',
                 'resources/css/form_styles.css',
+                'resources/css/admin_styles.css',
                 // Path to JS files
                 'resources/js/app.js',
                 'resources/js/bootstrap.js',

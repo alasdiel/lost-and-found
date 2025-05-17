@@ -4,16 +4,14 @@
     --background-color: #a7b6e0;
     --text-color: #333;
     --white: #ffffff;
+    --primary: #2e3a6a;
+    --secondary: #a7b6e0;
 
     /* Lost page specific colors */
-    --lost-primary: #2e3a6a;
-    --lost-secondary: #a7b6e0;
     --lost-card-bg: #7886c7;
     --lost-container-bg: #f8f0f0;
 
     /* Found page specific colors*/
-    --found-primary: #2e3a6a;
-    --found-secondary: #a7b6e0;
     --found-card-bg: #f8f0f0;
     --found-container-bg: #7886c7;
 }
@@ -39,17 +37,6 @@ body {
     align-items: center;
 }
 
-/* Page-specific body classes */
-body.lost-page {
-    /* Override variables for lost page if needed */
-    --background-color: var(--lost-secondary);
-}
-
-body.found-page {
-    /* Override variables for found page if needed */
-    --background-color: var(--found-secondary);
-}
-
 .page-wrapper {
     display: flex;
     flex-direction: column;
@@ -69,56 +56,34 @@ body.found-page {
 .top-header {
     background-color: var(--white);
     padding: 15px 0;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
 .header-content {
+    grid-area: header;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1500px;
-    margin: 0;
+    padding: 20px;
+    background-color: var(--white);
 }
 
 /* Header styles */
 .portal-title {
-    color: var(--lost-primary);
+    color: var(--primary);
     font-size: 24px;
     font-weight: bold;
 }
 
-/* Lost page specific header styles */
-.lost-page .portal-title {
-    color: var(--lost-primary);
-}
-
-/* Found page specific header styles */
-.found-page .portal-title {
-    color: var(--found-primary);
-}
-
 .login-btn {
-    background-color: var(--lost-primary);
+    background-color: var(--primary);
     color: var(--white);
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
-}
-
-/* Lost page specific login button */
-.lost-page .login-btn {
-    background-color: var(--lost-primary);
-}
-
-/* Found page specific login button */
-.found-page .login-btn {
-    background-color: var(--found-primary);
 }
 
 /* Search bar styles */
@@ -153,7 +118,7 @@ body.found-page {
     flex: 1;
     text-align: center;
     padding: 15px 0;
-    background-color: var(--lost-primary);
+    background-color: var(--primary);
     color: var(--white);
     cursor: pointer;
     font-weight: bold;
@@ -161,30 +126,11 @@ body.found-page {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Lost page specific tab styles */
-.lost-page .tab {
-    background-color: var(--lost-primary);
-}
-
-/* Found page specific tab styles */
-.found-page .tab {
-    background-color: var(--found-primary);
-}
-
 .tab.active {
     background-color: var(--white);
-    color: var(--lost-primary);
+    color: var(--primary);
 }
 
-/* Lost page specific active tab */
-.lost-page .tab.active {
-    color: var(--lost-primary);
-    }
-
-/* Found page specific active tab */
-.found-page .tab.active {
-    color: var(--found-primary);
-}
 
 /* Tab content */
 .tab-content {
@@ -224,7 +170,6 @@ body.found-page {
   /* Fixed width for exactly 3 cards per row */
     width: calc((100% - 50px) / 3);
     flex: 0 0 calc((100% - 50px) / 3);
-    background-color: var(--lost-card-bg);
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -292,6 +237,31 @@ body.found-page {
     opacity: 0.8;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+
+.decline-btn{
+    background-color: var(--white);
+    color: var(--primary);
+    border-color: var(--primary);
+    padding: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    border: 2px solid;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.decline-btn:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    border: 2px solid var(--primary);
+}
+
 /* User page specific styles to add to your existing CSS */
 
 /* User actions container in header */
@@ -301,10 +271,12 @@ body.found-page {
     align-items: center;
 }
 
-/* Submit button styling */
+/* Submit button styling - User */
 .submit-btn {
     background-color: var(--white);
-    padding: 10px 20px;
+    color: var(--primary);
+    border-color: var(--primary);
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
@@ -312,9 +284,16 @@ body.found-page {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Profile button styling */
+/* Submit button hover effect */
+.submit-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Profile button styling - User */
 .profile-btn {
-    padding: 10px 20px;
+    background-color: var(--primary);
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 8px;
     font-size: 18px;
@@ -322,41 +301,43 @@ body.found-page {
     transition: background-color 0.3s;
 }
 
-/* Lost page specific submit button */
-.lost-page .submit-btn {
-    color: var(--lost-primary);
-    border-color: var(--lost-primary);
-}
-
-.lost-page .submit-btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* Found page specific submit button */
-.found-page .submit-btn {
-  color: var(--found-primary);
-  border-color: var(--found-primary);
-}
-
-.found-page .submit-btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* Lost page specific profile button */
-.lost-page .profile-btn {
-    background-color: var(--lost-primary);
-}
-
-.lost-page .profile-btn:hover {
+/* Proile button hover effect */
+.profile-btn:hover {
     background-color: #3a4a80;
 }
 
-/* Found page specific profile button */
-.found-page .profile-btn {
-    background-color: var(--found-primary);
+
+/* Dashboard button styling - Admin */
+.dashboard-btn {
+    background-color: var(--white);
+    color: var(--primary);
+    border-color: var(--primary);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 2px solid;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.found-page .profile-btn:hover {
+/* Dashboard button hover effect */
+.dashboard-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Logout button styling - Admin*/
+.logout-btn {
+    background-color: var(--primary);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: var(--white);
+    transition: background-color 0.3s;
+}
+
+/* Logout button hover effect */
+.logout-btn:hover {
     background-color: #3a4a80;
 }
 

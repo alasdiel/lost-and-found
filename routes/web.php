@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -18,12 +21,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeRoute::class, 'showHome'])->name('show.home');
 
 Route::get('/signup', [AuthController::class, 'showSign_up'])->name('show.signup');
+Route::post('/signup', [AuthController::class, 'sign_up'])->name('signup');
 
 Route::get('/login', [AuthController::class, 'showLog_in'])->name('show.login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/form', function () {
-    return view('Form_submission');
-});
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/report', [FormController::class, 'showReport'])->name('show.report');
+Route::post('/report', [FormController::class, 'report'])->middleware('auth')->name('report');
+
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('show.profile');
+Route::post('/profile', [ProfileController::class, 'updateProfile'])->middleware('auth')->name('update.profile');
+
+Route::get('/dashboard', [AdminController::class, 'showDashboard'])->middleware('auth', 'admin')->name('show.dashboard');
+Route::post('/dashboard/handle/{id}', [AdminController::class, 'handle'])->middleware('auth', 'admin')->name('admin.handle');
 
 // Database
 Route::get('/dbconn', function(){
