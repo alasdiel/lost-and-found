@@ -15,6 +15,22 @@
         width: 100%;
         margin-right: 1rem;
         }
+        .error-message {
+        background-color: #e86a68;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 20px;
+        border: #c30010 2px solid;
+        }   
+        .error-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #f1e3e5;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +96,15 @@
                     <div class="success-message">
                         {{ session('success') }}
                     </div>
+                @endif
+
+                <!-- validation errors -->
+                @if ($errors->any())
+                    <ul class="error-message">
+                        @foreach ($errors->all() as $error)
+                            <li class="error-text">{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 @endif
                 <div class="submissions-table active">
                     <!-- Table Header -->
