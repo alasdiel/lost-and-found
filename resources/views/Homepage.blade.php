@@ -91,7 +91,7 @@
                         <!-- LOST -->
                         @php $count = 0; @endphp
                         @foreach($posts as $post)
-                            @if($post->lost_or_found === 'lost')
+                            @if($post->status === 0 && $post->lost_or_found === 'lost')
                                 @if($count % 3 === 0)
                                     @if($count > 0)
                                         </div> <!-- Close previous items-container -->
@@ -130,7 +130,7 @@
                         <!-- FOUND -->
                         @php $count = 0; @endphp
                         @foreach($posts as $post)
-                            @if($post->lost_or_found === 'found')
+                            @if($post->status === 0 && $post->lost_or_found === 'found')
                                 @if($count % 3 === 0)
                                     @if($count > 0)
                                         </div> <!-- Close previous items-container -->
