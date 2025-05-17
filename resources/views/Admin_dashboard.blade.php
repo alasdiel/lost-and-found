@@ -11,7 +11,7 @@
         <!-- Header -->
         <header class="header">
             <h1 class="portal-title">Lost and Found Portal</h1>
-            <button class="back-home-btn">Back to Home</button>
+            <a href="{{ route('show.home') }}" class="back-home-btn" style="text-decoration:none">Back to Home</a>
         </header>
 
         <!-- Sidebar -->
@@ -76,7 +76,7 @@
                     <p class="found-section">Found Reports</p>
                     <div class="requests-container">
                     @foreach($posts as $post)
-                        @if($post->status == 1 && $post->lost_or_found == 'lost')
+                        @if($post->status == 1 && $post->lost_or_found == 'found')
                         <div class="request-item">
                             <div class="item-image">
                                 <img src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/default.png') }}" alt="{{ $post->item_name }}" class="item-img">

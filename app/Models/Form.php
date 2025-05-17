@@ -20,7 +20,7 @@ class Form extends Model
     ];
     public $timestamps = false;
     protected $table = 'posts';
-    protected $primaryKey = 'post_id';
+    protected $primaryKey = 'id';
 
     public function user()
     {

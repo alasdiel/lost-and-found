@@ -62,11 +62,6 @@
                             <a href="{{ route('show.login') }}" class="login-btn">Log in</a>
                         @endguest
 
-                        <!-- 
-                            Admin user actions 
-                            <a href="#" class="dashboard-btn">Dashboard</a>
-                            <a href="#" class="logout-btn">Log out</a>
-                        -->
                         </div>
                     </div>
                 </div>
