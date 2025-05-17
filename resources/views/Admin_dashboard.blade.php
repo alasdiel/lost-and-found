@@ -36,7 +36,7 @@
             <div class="logout-btn">
                 <div style="display: flex; align-items: center; gap: 8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    <form method="POST" action="{{ route('logout') }}" style="display:inline class="logout-btn">
+                    <form method="POST" action="{{ route('logout') }}" style="display:inline, class=logout-btn">
                         @csrf
                         <button type="submit" style="all: unset; cursor: pointer;">LOG OUT</button>
                     </form>
@@ -120,6 +120,51 @@
                     @endif
                 </div>
             </div>
-        </div>    
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get navigation items
+                const navItems = document.querySelectorAll('.nav-item');
+                const lostTab = navItems[0];
+                const foundTab = navItems[1];
+                
+                // Get content sections
+                const lostReports = document.getElementById('lost-reports');
+                const foundReports = document.getElementById('found-reports');
+                
+                // Initialize - hide found reports initially
+                foundReports.style.display = 'none';
+                lostReports.style.display = 'block';
+                
+                // Make sure the correct tab is active initially
+                lostTab.classList.add('active');
+                foundTab.classList.remove('active');
+                
+                // Add click event listeners
+                lostTab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active states
+                    lostTab.classList.add('active');
+                    foundTab.classList.remove('active');
+                    
+                    // Show/hide content
+                    lostReports.style.display = 'block';
+                    foundReports.style.display = 'none';
+                });
+                
+                foundTab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active states
+                    foundTab.classList.add('active');
+                    lostTab.classList.remove('active');
+                    
+                    // Show/hide content
+                    foundReports.style.display = 'block';
+                    lostReports.style.display = 'none';
+                });
+            });
+        </script>    
     </body>
 </html>

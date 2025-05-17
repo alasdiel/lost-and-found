@@ -135,6 +135,7 @@ body {
 
 .nav-item {
     padding: 20px;
+    display:block;
     text-decoration: none;
     color: var(--white);
     font-weight: bold;
