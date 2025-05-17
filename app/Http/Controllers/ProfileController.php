@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
     public function showProfile(){
-        return view('Profile');
+        return view('User_profile', [
+            'user' => auth()->user()
+        ]);
     }
     public function updateProfile(Request $request){
         $valid = $request->validate([
@@ -20,18 +23,10 @@ class ProfileController extends Controller
         ]);
 
         $user = auth()->user();
-        $user->first_name = $valid['first_name'];
-        $user->last_name = $valid['last_name'];
-        $user->username = $valid['username'];
-        $user->contact_email = $valid['contact_email'];
-        $user->contact_number = $valid['contact_number'];
-        
-        // Only update password if it is provided
-        if ($valid['password']) {
-            $user->password = bcrypt($valid['password']);
+        if (isset($valid['password'])) {
+            $valid['password'] = Hash::make($valid['password']);
         }
-
-        $user->save();
+        $user->update($valid);
 
         return redirect()->route('show.profile')->with('success', 'Profile updated successfully!');
     }

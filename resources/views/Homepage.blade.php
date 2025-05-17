@@ -43,12 +43,20 @@
                         <h1 class="portal-title">Lost and Found Portal</h1>
 
                         @auth
+                            @if (Auth::user()->is_admin)
+                                <a href="{{ route('admin.dashboard') }}" class="dashboard-btn">Dashboard</a>
+                                <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="logout-btn">Log out</button>
+                            </form>
+                            @else
                             <a href="{{ route('show.report') }}" class="submit-btn">Submit</a>
                             <a href="{{ route('show.profile') }}" class="profile-btn">Profile</a>
                             <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="logout-btn">Log out</button>
                             </form>
+                            @endif
                         @endauth
                         @guest
                             <a href="{{ route('show.login') }}" class="login-btn">Log in</a>

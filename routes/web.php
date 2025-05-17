@@ -31,7 +31,8 @@ Route::get('/report', [FormController::class, 'showReport'])->name('show.report'
 Route::post('/report', [FormController::class, 'report'])->middleware('auth')->name('report');
 
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('show.profile');
-Route::post('/profile', [ProfileController::class, 'updateProfile'])->name('update.profile');
+Route::post('/profile', [ProfileController::class, 'updateProfile'])->middleware('auth')->name('update.profile');
+
 // Database
 Route::get('/dbconn', function(){
     return view('database');
