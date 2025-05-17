@@ -271,6 +271,25 @@ body {
   }
 }
 
+.no-reports{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--content-bg);
+  color: var(--text-color-dark);
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.text-reports{
+  font-size: 20px;
+  color: var(--text-color-dark);
+  font-weight: bolder;
+}
+
 .request-item {
   background-color: #7986cb;
   border-radius: 8px;
