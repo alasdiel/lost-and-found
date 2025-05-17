@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,9 @@ Route::post('/report', [FormController::class, 'report'])->middleware('auth')->n
 
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('show.profile');
 Route::post('/profile', [ProfileController::class, 'updateProfile'])->middleware('auth')->name('update.profile');
+
+Route::get('/dashboard', [AdminController::class, 'showDashboard'])->middleware('auth', 'admin')->name('show.dashboard');
+Route::post('/dashboard', [AdminController::class, 'approveReport'])->middleware('auth', 'admin')->name('approveReport');
 
 // Database
 Route::get('/dbconn', function(){

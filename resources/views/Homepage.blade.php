@@ -44,7 +44,7 @@
                         <div class="user-actions">
                         @auth
                             @if (Auth::user()->is_admin)
-                                <a href="{{ route('admin.dashboard') }}" class="dashboard-btn">Dashboard</a>
+                                <a href="{{ route('show.dashboard') }}" class="dashboard-btn">Dashboard</a>
                                 <form action="{{ route('logout') }}" method="POST" class="logout-form" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="logout-btn">Log out</button>

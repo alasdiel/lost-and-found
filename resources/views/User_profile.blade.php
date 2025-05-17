@@ -11,7 +11,7 @@
         <!-- Header -->
         <header class="header">
             <h1 class="portal-title">Lost and Found Portal</h1>
-            <button class="back-home-btn">Back to Home</button>
+            <a href="{{ route('show.home') }}" class="back-home-btn" style="text-decoration: none">Back to Home</a>
         </header>
 
         <!-- Sidebar -->
