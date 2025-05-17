@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Lost and Found Portal</title>
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="resources\css\app.css">
         <!-- 
             Fonts 
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -33,49 +33,7 @@
                     <button class="tab-button active" onclick="openTab('lost')">LOST</button>
                     <button class="tab-button" onclick="openTab('found')">FOUND</button>
                 </div>
-                
-                <div id="lost" class="tab-content active">
-                    <div class="items-grid">
-                        <?php foreach ($lostItems as $item): ?>
-                            <div class="item-card">
-                                <div class="item-image">
-                                    <img src="<?php echo !empty($item['image_path']) ? $item['image_path'] : 'assets/images/no-image.png'; ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>">
-                                </div>
-                                <div class="item-details">
-                                    <p><strong>Last seen:</strong> <?php echo htmlspecialchars($item['last_seen_date']); ?></p>
-                                    <p><strong>Item:</strong> <?php echo htmlspecialchars($item['item_name']); ?></p>
-                                    <p><strong>Contact Details:</strong></p>
-                                    <p><?php echo htmlspecialchars($item['contact_name']); ?></p>
-                                    <p><?php echo htmlspecialchars(substr($item['contact_phone'], 0, 2) . 'xxxxxxxxx'); ?></p>
-                                    <?php if (!empty($item['additional_details'])): ?>
-                                        <p><strong>Other details:</strong> <?php echo htmlspecialchars($item['additional_details']); ?></p>
-                                    <?php endif; ?>
-                                    <p><strong>Posted by:</strong> <?php echo htmlspecialchars($item['posted_by']); ?></p>
-                                </div>
-                            </div>
-                    
-                        
-                            <p class="no-items">No lost items reported yet.</p>
-                    </div>
-                </div>
-                
-                <div id="found" class="tab-content">
-                    <div class="items-grid">
-                            <div class="item-card">
-                                <div class="item-image">
-                                    <!--<img src="<?php echo !empty($item['image_path']) ? $item['image_path'] : 'assets/images/no-image.png'; ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>">-->
-                                </div>
-                                <div class="item-details">
-                                    <p><strong>Last seen:</strong></p>
-                                    <p><strong>Item:</strong> Hydro Flask</p>
-                                    <p><strong>Contact Details:</strong></p>
-                                    <p>Person here</p>
-                                    <p>Other Details: </p>
-                                    <p><strong>Posted by:</strong></p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
+
             </div>
             
             <footer class="portal-footer">
